@@ -96,6 +96,9 @@
     <ClCompile Include="write_to_file.cpp">
       <Filter>Source Files\write_to_file</Filter>
     </ClCompile>
+    <ClCompile Include="options_interface.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="conio.h">

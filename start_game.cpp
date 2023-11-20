@@ -43,7 +43,7 @@ void start_game()
 	do
 	{
 		print_table(table);
-		print_top_interface(player_1, player_2, color_theme);
+		print_top_interface(player_1, player_2, color_theme, false);
 		zn = getch();
 
 		if (zn == 'C')
@@ -56,14 +56,18 @@ void start_game()
 		}
 		else if (zn == 'P')
 		{
-			if (first_time)
-			{
-				first_time = false;
-				print_which_player_begins(player_index);
-			}
 			// If player typed "P" we will start a game in a loop
 			do
 			{
+				clrscr();
+
+				// Print who start the game
+				if (first_time)
+				{
+					first_time = false;
+					print_which_player_begins(player_index);
+				}
+
 				stop_playing = play(player_1, player_2, table, player_index, color_theme);
 				// Change player_index
 				if (player_index == 1) { player_index = 2; }
@@ -72,6 +76,7 @@ void start_game()
 				// Print state of the game to the file
 				write_to_file(table->table);
 			} while (!stop_playing);
+
 		}
 	} while (zn != 'Q' && zn != 'q');
 

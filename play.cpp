@@ -4,6 +4,7 @@
 
 bool play(Player* player_1, Player* player_2, Board* table_s, int player_index, int color_theme)
 {
+	textcolor(color_theme);
 	// Generate two random numbers and display them
 	int dice1, dice2;
 	get_random_numbers(&dice1, &dice2);
@@ -18,7 +19,7 @@ bool play(Player* player_1, Player* player_2, Board* table_s, int player_index, 
 	print_player_interface(player_index, dice1, dice2);
 
 	// Print the top interface
-	print_top_interface(player_1, player_2, color_theme);
+	print_top_interface(player_1, player_2, color_theme, true);
 
 	bool inserting_element = false;
 

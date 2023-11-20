@@ -19,5 +19,21 @@ int main()
 #endif
 
 	// Initialize the game
-	start_game();
+	gotoxy(40, 10);
+	cputs("Choose type of the game:");
+	gotoxy(40, 12);
+	cputs("[1] -> play with other player");
+	gotoxy(75, 12);
+	cputs("[2] -> play with AI");
+	int zn;
+	zn = getch();
+	clrscr();
+	if (zn == '1')
+	{
+		start_game();
+	}
+	else
+	{
+		//start_game_with_ai();
+	}
 }

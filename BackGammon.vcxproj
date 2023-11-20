@@ -136,6 +136,7 @@
     <ClCompile Include="insert_pawn.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="move.cpp" />
+    <ClCompile Include="options_interface.cpp" />
     <ClCompile Include="play.cpp" />
     <ClCompile Include="player_interface.cpp" />
     <ClCompile Include="print_bar.cpp" />

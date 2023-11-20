@@ -32,8 +32,6 @@ struct Player
 
 void start_game();
 
-void print_top_interface(Player* player_1, Player* player_2, int color_theme);
-
 /*
     Helper functions to initialize and print the table
 */
@@ -51,19 +49,22 @@ void print_table(Board* table_s);
 // _s -> it means that it is structure
 void initialize_table(Board* table_s);
 
-void print_table(Board* table_s);
-
 // Function to play the game
 bool play(Player* player_1, Player* player_2, Board* table_s, int player_index, int color_theme);
 
+/*
+    Functions for printing the interfaces
+*/
 // Funtion for displaying player's interface
+void print_top_interface(Player* player_1, Player* player_2, int color_theme, bool playing);
 void print_player_interface(int player_index, int dice1, int dice2);
+void print_startup_options_interface(int color_theme);
+void print_playing_interface(int color_theme);
+// This function will display for us which player starts the game
+void print_which_player_begins(int& player_index);
 
 // Function for generating two random integers
 void get_random_numbers(int* num1, int* num2);
-
-// This function will display for us which player starts the game
-void print_which_player_begins(int& player_index);
 
 // This function will tell us if all pawns of a given player are in home
 bool check_if_all_pawns_in_home(char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN], int player_index);

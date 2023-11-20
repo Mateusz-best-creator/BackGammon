@@ -36,6 +36,7 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 			table_s->player_1_bar[player_1_pawns_on_bar] = 'B';
 			player_1_pawns_on_bar--;
 		}
+		print_table(table_s); // Show the bar immediately
 	}
 
 	// Case when player insert the pawn (the same color)

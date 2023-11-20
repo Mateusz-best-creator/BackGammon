@@ -2,7 +2,7 @@
 #include "functions_definitions.h"
 #include "conio.h"
 
-void print_top_interface(Player* player1, Player* player2, int color_theme)
+void print_top_interface(Player* player1, Player* player2, int color_theme, bool playing)
 {
 	// settitle sets the window title
 	settitle("Mateusz Wieczorek - Data Engineering group 3, id = 197743");
@@ -34,17 +34,6 @@ void print_top_interface(Player* player1, Player* player2, int color_theme)
 	gotoxy(TOP_LEFT_X_CORNER_COORDINATE + 31, 5);
 	std::cout << player2->points;
 
-	// we set the text color
-	textcolor(color_theme);
-
-	gotoxy(100, 8);
-	cputs("Select: ");
-	gotoxy(100, 10);
-	cputs("[P] = play the game");
-	gotoxy(100, 12);
-	cputs("[F] = finish your move");
-	gotoxy(100, 14);
-	cputs("[C] = change color");
-	gotoxy(100, 16);
-	cputs("[Q] = quit game");
+	if (playing) { print_playing_interface(color_theme); }
+	else { print_startup_options_interface(color_theme); }
 }
