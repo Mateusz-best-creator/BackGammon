@@ -37,7 +37,7 @@ void start_game();
 /*
     Helper functions to initialize and print the table
 */
-void print_bar(char table[][WIDTH], char bar_table[BAR_SIZE], int x, int y);
+void initialize_bar(char table[][WIDTH], char bar_table[BAR_SIZE], int x, int y);
 void initialize_1_part_of_columns(int x_coordinate, int y_coordinate, Board* table_s);
 void initialize_pawns(char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN]);
 void print_top_pawns(char table[][WIDTH], char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN],
@@ -87,3 +87,6 @@ void write_to_binary_file(const char table[][WIDTH]);
 
 // This function allows us to insert a pawn to a specific column
 bool insert_pawn(Board* table_s, int column_index, int row_index, const char player_sign);
+
+// function that updates the bar
+bool update_bar(char bar[], char player_sign, int row_index);

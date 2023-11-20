@@ -7,7 +7,12 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 {
 	int column_index, row_index;
 
-	if (star_y > 15)
+	if (star_x == 55) // Case when we want to insert the pawn from the bar to the board
+	{
+		column_index = -1;
+		row_index = star_y - 17;
+	}
+	else if (star_y > 15)
 	{
 		// Means we are at the botom of the board
 		// Now we need to update the pawn table (description how this formula works will be in the paper)
@@ -38,8 +43,22 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 	column_index--;
 
 	bool inserted = true;
+	gotoxy(1, 1);
+	std::cout << column_index << " " << row_index << " " << player_sign;
+	if (column_index == -2)
+	{
+		if (player_sign == 'B')
+		{
+			inserting_element = update_bar(table_s->player_1_bar, player_sign, row_index);
+		}
+		else
+		{
+			inserting_element = update_bar(table_s->player_2_bar, player_sign, row_index);
+		}
+		return;
+	}
 
-	// First check if a player has a "permission" to move a pawn
+	// First check if a player has a "permission" to move a pawn, if it's not his pawn he can't make a move using this
 	if (table_s->pawns[column_index][row_index] == player_sign || inserting_element)
 	{
 
@@ -51,9 +70,28 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 		{
 			// Update pawns array, delete some element
 			table_s->pawns[column_index][row_index] = 'E';
+
+			// Update pawns in the column, so there will be no "gaps" between them
+			int pawns_in_column = 0;
+			for (int i = 0; i < NUMBER_OF_ROWS_IN_COLUMN; ++i)
+			{
+				if (table_s->pawns[column_index][i] == player_sign) { pawns_in_column++; }
+			}
+			for (int i = 0; i < NUMBER_OF_ROWS_IN_COLUMN; ++i)
+			{
+				if (i < pawns_in_column)
+				{
+					table_s->pawns[column_index][i] = player_sign;
+				}
+				else
+				{
+					table_s->pawns[column_index][i] = 'E';
+				}
+			}
 		}
 		if (inserted)
 		{
+			// Only if we succesfully inserted the element we want to change the background and "inserted" variable
 			inserting_element = !inserting_element;
 			background_color = LIGHTGREEN;
 		}

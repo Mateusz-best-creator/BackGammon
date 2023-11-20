@@ -1,6 +1,6 @@
 #include "functions_definitions.h"
 
-void print_bar(char table[][WIDTH], char bar_table[BAR_SIZE], int x, int y)
+void initialize_bar(char table[][WIDTH], char bar_table[BAR_SIZE], int x, int y)
 {
     // Print bars of one player
     for (int i = 0; i < BAR_SIZE; ++i)

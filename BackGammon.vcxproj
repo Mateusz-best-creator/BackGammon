@@ -139,12 +139,13 @@
     <ClCompile Include="options_interface.cpp" />
     <ClCompile Include="play.cpp" />
     <ClCompile Include="player_interface.cpp" />
-    <ClCompile Include="print_bar.cpp" />
+    <ClCompile Include="initialize_bar.cpp" />
     <ClCompile Include="print_pawns.cpp" />
     <ClCompile Include="print_table.cpp" />
     <ClCompile Include="random_numbers.cpp" />
     <ClCompile Include="start_game.cpp" />
     <ClCompile Include="top_interface.cpp" />
+    <ClCompile Include="update_bar.cpp" />
     <ClCompile Include="who_start_interface.cpp" />
     <ClCompile Include="write_to_file.cpp" />
   </ItemGroup>

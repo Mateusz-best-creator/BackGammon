@@ -75,7 +75,7 @@
     <ClCompile Include="player_interface.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
-    <ClCompile Include="print_bar.cpp">
+    <ClCompile Include="initialize_bar.cpp">
       <Filter>Source Files\board</Filter>
     </ClCompile>
     <ClCompile Include="print_pawns.cpp">
@@ -98,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="options_interface.cpp">
       <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="update_bar.cpp">
+      <Filter>Source Files\move</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

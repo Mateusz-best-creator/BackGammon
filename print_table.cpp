@@ -63,6 +63,6 @@ void print_table(Board* table_s)
     }
 
     // Print bars of both players
-    print_bar(table_s->table, table_s->player_1_bar, TOP_LEFT_X_CORNER_COORDINATE + (WIDTH / 2), TOP_LEFT_Y_CORNER_COORDINATE + 1);
-    print_bar(table_s->table, table_s->player_2_bar, TOP_LEFT_X_CORNER_COORDINATE + (WIDTH / 2), TOP_LEFT_Y_CORNER_COORDINATE + 1 + 8);
+    initialize_bar(table_s->table, table_s->player_1_bar, TOP_LEFT_X_CORNER_COORDINATE + (WIDTH / 2), TOP_LEFT_Y_CORNER_COORDINATE + 1);
+    initialize_bar(table_s->table, table_s->player_2_bar, TOP_LEFT_X_CORNER_COORDINATE + (WIDTH / 2), TOP_LEFT_Y_CORNER_COORDINATE + 1 + 8);
 }
