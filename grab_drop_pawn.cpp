@@ -43,8 +43,7 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 	column_index--;
 
 	bool inserted = true;
-	gotoxy(1, 1);
-	std::cout << column_index << " " << row_index << " " << player_sign;
+
 	if (column_index == -2)
 	{
 		if (player_sign == 'B')

@@ -19,7 +19,7 @@ bool update_bar(char bar[], char player_sign, int row_index)
 		}
 		else
 		{
-			bar[i] = 'E';
+			bar[i] = '=';
 		}
 	}
 

@@ -7,12 +7,26 @@
 
 */
 
-static int player_1_pawns_on_bar = BAR_SIZE - 1;
-static int player_2_pawns_on_bar = 0;
+void update_bar_pawns(char bar[BAR_SIZE], char player_sign, int pawns_on_bar)
+{
+	for (int i = 0; i < pawns_on_bar; ++i)
+	{
+		bar[i] = player_sign;
+	}
+}
 
 bool insert_pawn(Board* table_s, int column_index, int row_index, const char player_sign)
 {
 	char enemy_player_sign = (player_sign == 'R') ? 'B' : 'R';
+
+	int player_1_pawns_on_bar = 0;
+	int player_2_pawns_on_bar = 0;
+
+	for (int i = 0; i < BAR_SIZE; ++i)
+	{
+		if (table_s->player_1_bar[i] == 'B') { player_1_pawns_on_bar++; }
+		if (table_s->player_2_bar[i] == 'R') { player_2_pawns_on_bar++; }
+	}
 
 	// Case when the entire column is empty
 	if (table_s->pawns[column_index][0] == 'E')
@@ -27,14 +41,13 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 
 		if (enemy_player_sign == 'R')
 		{
-			table_s->player_2_bar[player_2_pawns_on_bar] = 'R';
 			player_2_pawns_on_bar++;
+			update_bar_pawns(table_s->player_2_bar, 'R', player_2_pawns_on_bar);
 		}
 		else
 		{
-			// We want display player1 pawns from bottom
-			table_s->player_1_bar[player_1_pawns_on_bar] = 'B';
-			player_1_pawns_on_bar--;
+			player_1_pawns_on_bar++;
+			update_bar_pawns(table_s->player_1_bar, 'B', player_1_pawns_on_bar);
 		}
 		print_table(table_s); // Show the bar immediately
 	}
