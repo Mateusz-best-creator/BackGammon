@@ -2,11 +2,9 @@
 #include "conio.h"
 #include <iostream>
 
-void print_startup_options_interface(int color_theme)
+void print_startup_options_interface()
 {
-	// we set the text color
-	textcolor(color_theme);
-
+	textcolor(LIGHTGRAY);
 	gotoxy(100, 8);
 	cputs("Select: ");
 	gotoxy(100, 10);
@@ -17,10 +15,9 @@ void print_startup_options_interface(int color_theme)
 	cputs("[Q] = quit game");
 }
 
-void print_playing_interface(int color_theme)
+void print_playing_interface()
 {
-	textcolor(color_theme);
-
+	textcolor(LIGHTGRAY);
 	gotoxy(100, 8);
 	cputs("Select: ");
 	gotoxy(100, 10);

@@ -2,15 +2,15 @@
 #include "functions_definitions.h"
 #include "conio.h"
 
-bool play(Player* player_1, Player* player_2, Board* table_s, int player_index, int color_theme)
+bool play(Player* player_1, Player* player_2, Board* table_s, int player_index)
 {
-	textcolor(color_theme);
-	// Generate two random numbers and display them
+	textcolor(LIGHTGRAY);
+	// Generate two random numbers and display them	
 	int dice1, dice2;
 	get_random_numbers(&dice1, &dice2);
 	int dice_sum = dice1 + dice2;
 
-	int zn = 0, text_color = LIGHTGRAY, background_color = 0, zero = 0;
+	int zn = 0, background_color = 0, zero = 0;
 
 	// Initialize start coordinates for our '*' pointer, roughly in the middle of the board
 	int star_x = 55, star_y = 16;
@@ -19,7 +19,7 @@ bool play(Player* player_1, Player* player_2, Board* table_s, int player_index, 
 	print_player_interface(player_index, dice1, dice2);
 
 	// Print the top interface
-	print_top_interface(player_1, player_2, color_theme, true);
+	print_top_interface(player_1, player_2, true);
 
 	bool inserting_element = false;
 
@@ -32,7 +32,6 @@ bool play(Player* player_1, Player* player_2, Board* table_s, int player_index, 
 		print_table(table_s);
 
 		// Set some visual attributes
-		textcolor(text_color);
 		textbackground(background_color);
 
 		// Put our star on the screen

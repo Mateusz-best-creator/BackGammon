@@ -14,12 +14,14 @@
 
 #define BAR_SIZE 7
 
+
 struct Board
 {
     char table[HEIGHT][WIDTH];
     char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN];
     char player_1_bar[BAR_SIZE];
     char player_2_bar[BAR_SIZE];
+    int color;
 };
 
 struct Player
@@ -50,16 +52,16 @@ void print_table(Board* table_s);
 void initialize_table(Board* table_s);
 
 // Function to play the game
-bool play(Player* player_1, Player* player_2, Board* table_s, int player_index, int color_theme);
+bool play(Player* player_1, Player* player_2, Board* table_s, int player_index);
 
 /*
     Functions for printing the interfaces
 */
 // Funtion for displaying player's interface
-void print_top_interface(Player* player_1, Player* player_2, int color_theme, bool playing);
+void print_top_interface(Player* player_1, Player* player_2, bool playing);
 void print_player_interface(int player_index, int dice1, int dice2);
-void print_startup_options_interface(int color_theme);
-void print_playing_interface(int color_theme);
+void print_startup_options_interface();
+void print_playing_interface();
 // This function will display for us which player starts the game
 void print_which_player_begins(int& player_index);
 

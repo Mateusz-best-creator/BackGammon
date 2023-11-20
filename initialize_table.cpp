@@ -2,6 +2,7 @@
 
 void initialize_table(Board* table_s)
 {
+    table_s->color = 7; // Set our board color, defaults to LIGHTGRAY
     // For now initialize everything to empty space
     for (int i = 0; i < HEIGHT; ++i)
     {

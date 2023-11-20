@@ -12,6 +12,7 @@ void print_table(Board* table_s)
 
     int extra = 0;
     // Print top and bottom indexes
+    textcolor(table_s->color);
     for (int i = 1; i <= NUMBER_OF_INDEXES; ++i)
     {
         if (i == NUMBER_OF_INDEXES / 2 + 1)
@@ -56,7 +57,7 @@ void print_table(Board* table_s)
             // Put the pawn on the screen
             putch(table_s->table[i][j]);
             // reset text color
-            textcolor(LIGHTGRAY);
+            textcolor(table_s->color);
         }
         std::cout << "\n";
     }

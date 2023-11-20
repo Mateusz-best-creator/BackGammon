@@ -2,7 +2,7 @@
 #include "functions_definitions.h"
 #include "conio.h"
 
-void print_top_interface(Player* player1, Player* player2, int color_theme, bool playing)
+void print_top_interface(Player* player1, Player* player2, bool playing)
 {
 	// settitle sets the window title
 	settitle("Mateusz Wieczorek - Data Engineering group 3, id = 197743");
@@ -34,6 +34,6 @@ void print_top_interface(Player* player1, Player* player2, int color_theme, bool
 	gotoxy(TOP_LEFT_X_CORNER_COORDINATE + 31, 5);
 	std::cout << player2->points;
 
-	if (playing) { print_playing_interface(color_theme); }
-	else { print_startup_options_interface(color_theme); }
+	if (playing) { print_playing_interface(); }
+	else { print_startup_options_interface(); }
 }
