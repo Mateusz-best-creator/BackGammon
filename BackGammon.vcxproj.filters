@@ -13,10 +13,96 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\winning">
+      <UniqueIdentifier>{97b511e7-c384-45dd-951f-e0ec7fe38898}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\conio">
+      <UniqueIdentifier>{82d147a5-8ca0-4a2a-bd6d-98a57db6855c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\move">
+      <UniqueIdentifier>{d1923275-a1e2-4c98-9c23-f23ddec1cb29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\board">
+      <UniqueIdentifier>{1f7342ad-9851-4281-a96b-9b0e59adea31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\play_game">
+      <UniqueIdentifier>{37354dfc-3f38-4689-af44-ff018bab17e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\interface">
+      <UniqueIdentifier>{b65c910f-d4ec-4a33-b2bc-bf4f26c33860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\random_numbers">
+      <UniqueIdentifier>{05a82a8e-e96f-4f63-a3b7-cec6a1a5cbd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\write_to_file">
+      <UniqueIdentifier>{e03a5f2e-ee82-4929-b868-0312b47cb117}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BackGammon.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="check_all_pawns_in_home.cpp">
+      <Filter>Source Files\winning</Filter>
+    </ClCompile>
+    <ClCompile Include="conio.cpp">
+      <Filter>Source Files\conio</Filter>
+    </ClCompile>
+    <ClCompile Include="grab_drop_pawn.cpp">
+      <Filter>Source Files\move</Filter>
+    </ClCompile>
+    <ClCompile Include="initialize_columns.cpp">
+      <Filter>Source Files\board</Filter>
+    </ClCompile>
+    <ClCompile Include="start_game.cpp">
+      <Filter>Source Files\play_game</Filter>
+    </ClCompile>
+    <ClCompile Include="initialize_pawns.cpp">
+      <Filter>Source Files\board</Filter>
+    </ClCompile>
+    <ClCompile Include="initialize_table.cpp">
+      <Filter>Source Files\board</Filter>
+    </ClCompile>
+    <ClCompile Include="insert_pawn.cpp">
+      <Filter>Source Files\move</Filter>
+    </ClCompile>
+    <ClCompile Include="move.cpp">
+      <Filter>Source Files\move</Filter>
+    </ClCompile>
+    <ClCompile Include="play.cpp">
+      <Filter>Source Files\play_game</Filter>
+    </ClCompile>
+    <ClCompile Include="player_interface.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="print_bar.cpp">
+      <Filter>Source Files\board</Filter>
+    </ClCompile>
+    <ClCompile Include="print_pawns.cpp">
+      <Filter>Source Files\board</Filter>
+    </ClCompile>
+    <ClCompile Include="print_table.cpp">
+      <Filter>Source Files\board</Filter>
+    </ClCompile>
+    <ClCompile Include="random_numbers.cpp">
+      <Filter>Source Files\random_numbers</Filter>
+    </ClCompile>
+    <ClCompile Include="top_interface.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="who_start_interface.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="write_to_file.cpp">
+      <Filter>Source Files\write_to_file</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="conio.h">
+      <Filter>Source Files\conio</Filter>
+    </ClInclude>
+    <ClInclude Include="functions_definitions.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

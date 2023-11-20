@@ -127,7 +127,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BackGammon.cpp" />
+    <ClCompile Include="check_all_pawns_in_home.cpp" />
+    <ClCompile Include="conio.cpp" />
+    <ClCompile Include="grab_drop_pawn.cpp" />
+    <ClCompile Include="initialize_columns.cpp" />
+    <ClCompile Include="initialize_pawns.cpp" />
+    <ClCompile Include="initialize_table.cpp" />
+    <ClCompile Include="insert_pawn.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="move.cpp" />
+    <ClCompile Include="play.cpp" />
+    <ClCompile Include="player_interface.cpp" />
+    <ClCompile Include="print_bar.cpp" />
+    <ClCompile Include="print_pawns.cpp" />
+    <ClCompile Include="print_table.cpp" />
+    <ClCompile Include="random_numbers.cpp" />
+    <ClCompile Include="start_game.cpp" />
+    <ClCompile Include="top_interface.cpp" />
+    <ClCompile Include="who_start_interface.cpp" />
+    <ClCompile Include="write_to_file.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="conio.h" />
+    <ClInclude Include="functions_definitions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
