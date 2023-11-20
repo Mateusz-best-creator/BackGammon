@@ -15,8 +15,37 @@ void update_bar_pawns(char bar[BAR_SIZE], char player_sign, int pawns_on_bar)
 	}
 }
 
-bool insert_pawn(Board* table_s, int column_index, int row_index, const char player_sign)
+bool insert_pawn(Board* table_s, int column_index, int row_index, const char player_sign,
+	int& dice1, int& dice2, int start_column_index)
 {
+	// Check if we are able to make a move based on dice1 and dice2 values
+	// We pass dice1 and dice2 by reference!
+	int difference;
+	if (player_sign == 'B') { difference = start_column_index - column_index; }
+	else { difference = column_index - start_column_index; }
+	
+	if ((column_index < start_column_index && player_sign == 'R') || 
+		(column_index > start_column_index && player_sign == 'B'))
+	{
+		gotoxy(TOP_LEFT_X_CORNER_COORDINATE, 31);
+		std::cout << "You can't move back.";
+		return false;
+	}
+	
+	if (difference == 0)
+	{
+		// just continue
+	}
+	else if (difference != dice1 + dice2 && difference != dice1 && difference != dice2)
+	{
+		gotoxy(TOP_LEFT_X_CORNER_COORDINATE, 30);
+		std::cout << "You cannot insert your pawn [" << player_sign << "] in " << column_index + 1 << " column.";
+		gotoxy(TOP_LEFT_X_CORNER_COORDINATE, 31);
+		std::cout << "You have " << dice1 + dice2 << " moves left";
+		
+		return false;
+	}
+	
 	char enemy_player_sign = (player_sign == 'R') ? 'B' : 'R';
 
 	int player_1_pawns_on_bar = 0;
@@ -65,12 +94,25 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 		}
 	}
 
-	// Case when playe cannot insert the pawn
+	// Case when player cannot insert the pawn
 	else if (table_s->pawns[column_index][0] == enemy_player_sign)
 	{
 		gotoxy(TOP_LEFT_X_CORNER_COORDINATE, 30);
 		std::cout << "You cannot insert your pawn [" << player_sign << "] in " << column_index + 1 << " column";
 		return false; // false will indicate that we were unable to insert the pawn at given position
 	}
+
+	// Update dice values if we inserted the pawn properly
+	if (difference != 0)
+	{
+		if (difference == dice1) { dice1 = 0; }
+		else if (difference == dice2) { dice2 = 0; }
+		else
+		{
+			dice1 = 0;
+			dice2 = 0;
+		}
+	}
+
 	return true;
 }

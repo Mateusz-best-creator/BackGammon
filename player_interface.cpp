@@ -2,16 +2,21 @@
 #include "conio.h"
 #include "functions_definitions.h"
 
-void print_player_interface(int player_index, int dice1, int dice2)
+void print_player_interface(int player_index, Player* player_1, Player* player_2)
 {
+	int dice1, dice2;
 	// Display which player now makes a move
 	if (player_index == 1)
 	{
 		textcolor(LIGHTCYAN);
+		dice1 = player_1->dice1;
+		dice2 = player_1->dice2;
 	}
 	else
 	{
 		textcolor(LIGHTRED);
+		dice1 = player_2->dice1;
+		dice2 = player_2->dice2;
 	}
 	gotoxy(100, 18);
 	std::cout << "Player ";

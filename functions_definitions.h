@@ -30,6 +30,7 @@ struct Player
     char pawn_char;
     int player_index;
     bool can_take_pieces_of_the_board = false;
+    int dice1, dice2;
 };
 
 void start_game();
@@ -59,7 +60,7 @@ bool play(Player* player_1, Player* player_2, Board* table_s, int player_index);
 */
 // Funtion for displaying player's interface
 void print_top_interface(Player* player_1, Player* player_2, bool playing);
-void print_player_interface(int player_index, int dice1, int dice2);
+void print_player_interface(int player_index, Player* player_1, Player* player_2);
 void print_startup_options_interface();
 void print_playing_interface();
 // This function will display for us which player starts the game
@@ -74,10 +75,12 @@ bool check_if_all_pawns_in_home(char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_
 // This function allows us to make a move
 void move(Board* table_s, int& zn, int& star_x,
     int& star_y, int& background_color, int& zero,
-    bool& inserting_element, char player_sign);
+    bool& inserting_element, char player_sign,
+    int& dice1, int& dice2);
 
 void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
-    char player_sign, bool& inserting_element, int& background_color);
+    char player_sign, bool& inserting_element, int& background_color,
+    int& dice1, int& dice2);
 
 // This function allows us to save state of the game to a file
 void write_to_file(const char board[][WIDTH]);
@@ -86,7 +89,8 @@ void write_to_file(const char board[][WIDTH]);
 void write_to_binary_file(const char table[][WIDTH]);
 
 // This function allows us to insert a pawn to a specific column
-bool insert_pawn(Board* table_s, int column_index, int row_index, const char player_sign);
+bool insert_pawn(Board* table_s, int column_index, int row_index, const char player_sign,
+    int& dice1, int& dice2, int start_column_index);
 
 // function that updates the bar
 bool update_bar(char bar[], char player_sign, int row_index);

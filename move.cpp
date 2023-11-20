@@ -4,7 +4,8 @@
 
 void move(Board* table_s, int& zn, int& star_x,
 	int& star_y, int& background_color, int& zero,
-	bool& inserting_element, char player_sign) // Passing most values by reference
+	bool& inserting_element, char player_sign,
+	int& dice1, int& dice2) // Passing most values by reference
 {
 	int table_column = 0, table_row = 0;
 	// we do not want the key 'H' to play role of "up arrow"
@@ -30,6 +31,7 @@ void move(Board* table_s, int& zn, int& star_x,
 	}
 	else if (zn == 0x0d)
 	{
-		grab_drop_pawn(table_s, star_x, star_y, player_sign, inserting_element, background_color);
+		grab_drop_pawn(table_s, star_x, star_y, player_sign, 
+			inserting_element, background_color, dice1, dice2);
 	}
 }

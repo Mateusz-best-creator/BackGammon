@@ -3,7 +3,8 @@
 #include <iostream>
 
 void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
-	char player_sign, bool& inserting_element, int& background_color)
+	char player_sign, bool& inserting_element, int& background_color,
+	int& dice1, int& dice2)
 {
 	int column_index, row_index;
 
@@ -44,6 +45,9 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 
 	bool inserted = true;
 
+	// These two variables will represent column and index from where we moved our pawn
+	static int start_column_index = 0;
+
 	if (column_index == -2)
 	{
 		if (player_sign == 'B')
@@ -63,10 +67,12 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 
 		if (inserting_element)
 		{
-			inserted = insert_pawn(table_s, column_index, row_index, player_sign);
+			inserted = insert_pawn(table_s, column_index, row_index, player_sign,
+				dice1, dice2, start_column_index);
 		}
 		else
 		{
+			start_column_index = column_index;
 			// Update pawns array, delete some element
 			table_s->pawns[column_index][row_index] = 'E';
 
