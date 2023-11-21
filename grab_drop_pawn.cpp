@@ -2,12 +2,14 @@
 #include "conio.h"
 #include <iostream>
 
+// Boolean that represents that we are inserting the pawn from the bar
+static bool inserting_pawn_from_bar = false;
+
 void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 	char player_sign, bool& inserting_element, int& background_color,
 	int& dice1, int& dice2)
 {
 	int column_index, row_index;
-
 	if (star_x == 55) // Case when we want to insert the pawn from the bar to the board
 	{
 		column_index = -1;
@@ -48,7 +50,7 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 	// These two variables will represent column and index from where we moved our pawn
 	static int start_column_index = 0;
 
-	if (column_index == -2)
+	if (column_index == -2) // We take the pawn from the bar
 	{
 		if (player_sign == 'B')
 		{
@@ -58,6 +60,7 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 		{
 			inserting_element = update_bar(table_s->player_2_bar, player_sign, row_index);
 		}
+		inserting_pawn_from_bar = true;
 		return;
 	}
 
@@ -68,7 +71,8 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 		if (inserting_element)
 		{
 			inserted = insert_pawn(table_s, column_index, row_index, player_sign,
-				dice1, dice2, start_column_index);
+				dice1, dice2, start_column_index, inserting_pawn_from_bar);
+			if (inserted && inserting_pawn_from_bar) { inserting_pawn_from_bar = false; }
 		}
 		else
 		{

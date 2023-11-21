@@ -90,7 +90,7 @@ void write_to_binary_file(const char table[][WIDTH]);
 
 // This function allows us to insert a pawn to a specific column
 bool insert_pawn(Board* table_s, int column_index, int row_index, const char player_sign,
-    int& dice1, int& dice2, int start_column_index);
+    int& dice1, int& dice2, int start_column_index, bool& inserting_pawn_from_bar);
 
 // function that updates the bar
 bool update_bar(char bar[], char player_sign, int row_index);

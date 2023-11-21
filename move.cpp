@@ -18,11 +18,6 @@ void move(Board* table_s, int& zn, int& star_x,
 		else if (zn == 0x4b) star_x--;
 		else if (zn == 0x4d) star_x++;
 
-		/*
-		gotoxy(1, 3);
-		std::cout << star_x << " " << star_y;
-		*/
-
 		//	If we are out of the board we need to adjust the coordinates
 		if (star_y > TOP_LEFT_Y_CORNER_COORDINATE + HEIGHT - 2) star_y--;
 		if (star_y < TOP_LEFT_Y_CORNER_COORDINATE + 1) star_y++;

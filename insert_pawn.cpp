@@ -16,16 +16,29 @@ void update_bar_pawns(char bar[BAR_SIZE], char player_sign, int pawns_on_bar)
 }
 
 bool insert_pawn(Board* table_s, int column_index, int row_index, const char player_sign,
-	int& dice1, int& dice2, int start_column_index)
+	int& dice1, int& dice2, int start_column_index, bool& inserting_pawn_from_bar)
 {
 	// Check if we are able to make a move based on dice1 and dice2 values
 	// We pass dice1 and dice2 by reference!
 	int difference;
-	if (player_sign == 'B') { difference = start_column_index - column_index; }
+	if (inserting_pawn_from_bar) 
+	{ 
+		if (player_sign == 'B')
+		{
+			difference = NUMBER_OF_COLUMNS - column_index;
+			start_column_index = 24;
+		}
+		else
+		{
+			difference = column_index + 1;
+			start_column_index = 0;
+		}
+	}
+	else if (player_sign == 'B') { difference = start_column_index - column_index; }
 	else { difference = column_index - start_column_index; }
 	
-	if ((column_index < start_column_index && player_sign == 'R') || 
-		(column_index > start_column_index && player_sign == 'B'))
+	if ((column_index < start_column_index && player_sign == 'R' && !inserting_pawn_from_bar) || 
+		(column_index > start_column_index && player_sign == 'B' && !inserting_pawn_from_bar))
 	{
 		gotoxy(TOP_LEFT_X_CORNER_COORDINATE, 31);
 		std::cout << "You can't move back.";
@@ -113,6 +126,5 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 			dice2 = 0;
 		}
 	}
-
 	return true;
 }
