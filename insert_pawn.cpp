@@ -7,6 +7,9 @@
 
 */
 
+static int how_many_moves_can_make = 2;
+static bool did_not_increment_moves = true;
+
 void update_bar_pawns(char bar[BAR_SIZE], char player_sign, int pawns_on_bar)
 {
 	for (int i = 0; i < pawns_on_bar; ++i)
@@ -30,6 +33,10 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 		dice1 = &player_2->dice1;
 		dice2 = &player_2->dice2;
 	}
+
+	if (*dice1 == *dice2 && did_not_increment_moves && *dice1 != 0 && *dice2 != 0) 
+	{ how_many_moves_can_make = 4; did_not_increment_moves = false; }
+	if (*dice1 != *dice2) { did_not_increment_moves = true; }
 
 	// Check if we are able to make a move based on dice1 and dice2 values
 	// We pass dice1 and dice2 by reference!
@@ -64,10 +71,14 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 	}
 	else if (difference != *dice1 + *dice2 && difference != *dice1 && difference != *dice2)
 	{
+		int dice_sum;
+		if (how_many_moves_can_make == 3) { dice_sum = 3 * *dice1; }
+		else if (how_many_moves_can_make == 4) { dice_sum = 4 * *dice2; }
+		else { dice_sum = *dice1 + *dice2; }
 		gotoxy(TOP_LEFT_X_CORNER_COORDINATE, 30);
 		std::cout << "You cannot insert your pawn [" << player_sign << "] in " << column_index + 1 << " column.";
 		gotoxy(TOP_LEFT_X_CORNER_COORDINATE, 31);
-		std::cout << "You have " << *dice1 + *dice2 << " moves left";
+		std::cout << "You have " << dice_sum << " moves left";
 		
 		return false;
 	}
@@ -131,13 +142,35 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 	// Update dice values if we inserted the pawn properly
 	if (difference != 0)
 	{
-		if (difference == *dice1) { *dice1 = 0; }
-		else if (difference == *dice2) { *dice2 = 0; }
-		else
+		if (difference == *dice1) 
+		{ 
+			if (how_many_moves_can_make > 2)
+			{
+				how_many_moves_can_make--;
+			}
+			else
+			{
+				*dice1 = 0;
+			}
+		}
+		else if (difference == *dice2)
+		{
+			if (how_many_moves_can_make > 2)
+			{
+				how_many_moves_can_make--;
+			}
+			else
+			{
+				*dice2 = 0;
+			}
+		}
+		else if (*dice1 + *dice2 == difference)
 		{
 			*dice1 = 0;
 			*dice2 = 0;
+			did_not_increment_moves = true;
 		}
 	}
+
 	return true;
 }

@@ -64,7 +64,7 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 		return;
 	}
 
-	// First check if a player has a "permission" to move a pawn, if it's not his pawn he can't make a move using this
+	// First check if a player has a "permission" to move a pawn, if it's not his pawn he can't make a move using it
 	if (table_s->pawns[column_index][row_index] == player_sign || inserting_element)
 	{
 
