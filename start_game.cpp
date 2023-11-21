@@ -28,6 +28,9 @@ void start_game()
 	player_1->player_index = 1;
 	player_2->player_index = 2;
 
+	player_1->number_of_removed_pawns = 0;
+	player_2->number_of_removed_pawns = 0;
+
 	// This index will keep track which player now makes a move
 	int player_index = 1;
 
@@ -44,6 +47,7 @@ void start_game()
 	{
 		print_table(table);
 		print_top_interface(player_1, player_2, false);
+		print_removed_pawns_interface(player_1, player_2);
 		zn = getch();
 
 		if (zn == 'C')

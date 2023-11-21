@@ -143,6 +143,7 @@
     <ClCompile Include="print_pawns.cpp" />
     <ClCompile Include="print_table.cpp" />
     <ClCompile Include="random_numbers.cpp" />
+    <ClCompile Include="removed_pawns_interface.cpp" />
     <ClCompile Include="start_game.cpp" />
     <ClCompile Include="top_interface.cpp" />
     <ClCompile Include="update_bar.cpp" />

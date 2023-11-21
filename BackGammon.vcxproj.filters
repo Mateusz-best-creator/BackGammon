@@ -102,6 +102,9 @@
     <ClCompile Include="update_bar.cpp">
       <Filter>Source Files\move</Filter>
     </ClCompile>
+    <ClCompile Include="removed_pawns_interface.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="conio.h">

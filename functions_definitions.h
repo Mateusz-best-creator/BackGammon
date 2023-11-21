@@ -14,6 +14,8 @@
 
 #define BAR_SIZE 7
 
+#define NUMBER_OF_PAWNS_FOR_ONE_PLAYER 15
+
 
 struct Board
 {
@@ -31,6 +33,8 @@ struct Player
     int player_index;
     bool can_take_pieces_of_the_board = false;
     int dice1, dice2;
+    char removed_pawns[NUMBER_OF_PAWNS_FOR_ONE_PLAYER] = { 'b', 'b', 'b' };
+    int number_of_removed_pawns;
 };
 
 void start_game();
@@ -63,6 +67,7 @@ void print_top_interface(Player* player_1, Player* player_2, bool playing);
 void print_player_interface(int player_index, Player* player_1, Player* player_2);
 void print_startup_options_interface();
 void print_playing_interface();
+void print_removed_pawns_interface(Player* player_1, Player* player_2);
 // This function will display for us which player starts the game
 void print_which_player_begins(int& player_index);
 
