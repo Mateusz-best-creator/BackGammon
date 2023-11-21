@@ -37,7 +37,8 @@ bool play(Player* player_1, Player* player_2, Board* table_s, int player_index)
 
 	do
 	{
-		if (dice1 == 0 && dice2 == 0)
+		if ((player_1->dice1 == 0 && player_1->dice2 == 0 && player_index == 1) ||
+			(player_2->dice1 == 0 && player_2->dice2 == 0 && player_index == 2))
 		{
 			// It means that player cannot make another moves
 			break;
@@ -67,7 +68,7 @@ bool play(Player* player_1, Player* player_2, Board* table_s, int player_index)
 		textbackground(background_color);
 
 		move(table_s, zn, star_x, star_y, background_color,
-			zero, inserting_element, player_sign, dice1, dice2);
+			zero, inserting_element, player_sign, player_1, player_2);
 
 	} while (zn != 'F' && zn != 'Q');
 	clrscr();

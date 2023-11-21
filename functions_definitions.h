@@ -76,11 +76,11 @@ bool check_if_all_pawns_in_home(char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_
 void move(Board* table_s, int& zn, int& star_x,
     int& star_y, int& background_color, int& zero,
     bool& inserting_element, char player_sign,
-    int& dice1, int& dice2);
+    Player* player_1, Player* player_2);
 
 void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
     char player_sign, bool& inserting_element, int& background_color,
-    int& dice1, int& dice2);
+    Player* player_1, Player* player_2);
 
 // This function allows us to save state of the game to a file
 void write_to_file(const char board[][WIDTH]);
@@ -90,7 +90,7 @@ void write_to_binary_file(const char table[][WIDTH]);
 
 // This function allows us to insert a pawn to a specific column
 bool insert_pawn(Board* table_s, int column_index, int row_index, const char player_sign,
-    int& dice1, int& dice2, int start_column_index, bool& inserting_pawn_from_bar);
+    Player* player_1, Player* player_2, int start_column_index, bool& inserting_pawn_from_bar);
 
 // function that updates the bar
 bool update_bar(char bar[], char player_sign, int row_index);

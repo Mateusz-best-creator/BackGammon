@@ -7,7 +7,7 @@ static bool inserting_pawn_from_bar = false;
 
 void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 	char player_sign, bool& inserting_element, int& background_color,
-	int& dice1, int& dice2)
+	Player* player_1, Player* player_2)
 {
 	int column_index, row_index;
 	if (star_x == 55) // Case when we want to insert the pawn from the bar to the board
@@ -71,7 +71,7 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 		if (inserting_element)
 		{
 			inserted = insert_pawn(table_s, column_index, row_index, player_sign,
-				dice1, dice2, start_column_index, inserting_pawn_from_bar);
+				player_1, player_2, start_column_index, inserting_pawn_from_bar);
 			if (inserted && inserting_pawn_from_bar) { inserting_pawn_from_bar = false; }
 		}
 		else

@@ -16,8 +16,21 @@ void update_bar_pawns(char bar[BAR_SIZE], char player_sign, int pawns_on_bar)
 }
 
 bool insert_pawn(Board* table_s, int column_index, int row_index, const char player_sign,
-	int& dice1, int& dice2, int start_column_index, bool& inserting_pawn_from_bar)
+	Player* player_1, Player* player_2, int start_column_index, bool& inserting_pawn_from_bar)
 {
+	int *dice1, *dice2;
+	// Get the dice values
+	if (player_sign == 'B')
+	{
+		dice1 = &player_1->dice1;
+		dice2 = &player_1->dice2;
+	}
+	else
+	{
+		dice1 = &player_2->dice1;
+		dice2 = &player_2->dice2;
+	}
+
 	// Check if we are able to make a move based on dice1 and dice2 values
 	// We pass dice1 and dice2 by reference!
 	int difference;
@@ -49,12 +62,12 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 	{
 		// just continue
 	}
-	else if (difference != dice1 + dice2 && difference != dice1 && difference != dice2)
+	else if (difference != *dice1 + *dice2 && difference != *dice1 && difference != *dice2)
 	{
 		gotoxy(TOP_LEFT_X_CORNER_COORDINATE, 30);
 		std::cout << "You cannot insert your pawn [" << player_sign << "] in " << column_index + 1 << " column.";
 		gotoxy(TOP_LEFT_X_CORNER_COORDINATE, 31);
-		std::cout << "You have " << dice1 + dice2 << " moves left";
+		std::cout << "You have " << *dice1 + *dice2 << " moves left";
 		
 		return false;
 	}
@@ -118,12 +131,12 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 	// Update dice values if we inserted the pawn properly
 	if (difference != 0)
 	{
-		if (difference == dice1) { dice1 = 0; }
-		else if (difference == dice2) { dice2 = 0; }
+		if (difference == *dice1) { *dice1 = 0; }
+		else if (difference == *dice2) { *dice2 = 0; }
 		else
 		{
-			dice1 = 0;
-			dice2 = 0;
+			*dice1 = 0;
+			*dice2 = 0;
 		}
 	}
 	return true;
