@@ -98,6 +98,8 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 	if (table_s->pawns[column_index][0] == 'E')
 	{
 		table_s->pawns[column_index][0] = player_sign;
+		// Check if all pawns of the player are in home, after inserting the pawn
+		check_if_pawns_in_home(table_s, player_1, player_2, player_sign);
 	}
 
 	// zbicie piona
@@ -116,6 +118,9 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 			update_bar_pawns(table_s->player_1_bar, 'B', player_1_pawns_on_bar);
 		}
 		print_table(table_s); // Show the bar immediately
+
+		// Check if all pawns of the player are in home, after inserting the pawn
+		check_if_pawns_in_home(table_s, player_1, player_2, player_sign);
 	}
 
 	// Case when player insert the pawn (the same color)
@@ -129,6 +134,8 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 				break;
 			}
 		}
+		// Check if all pawns of the player are in home, after inserting the pawn
+		check_if_pawns_in_home(table_s, player_1, player_2, player_sign);
 	}
 
 	// Case when player cannot insert the pawn

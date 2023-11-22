@@ -145,6 +145,7 @@
     <ClCompile Include="random_numbers.cpp" />
     <ClCompile Include="removed_pawns_interface.cpp" />
     <ClCompile Include="start_game.cpp" />
+    <ClCompile Include="take_pawn_off_the_board.cpp" />
     <ClCompile Include="top_interface.cpp" />
     <ClCompile Include="update_bar.cpp" />
     <ClCompile Include="who_start_interface.cpp" />

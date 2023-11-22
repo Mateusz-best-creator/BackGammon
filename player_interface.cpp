@@ -64,4 +64,10 @@ void print_player_interface(int player_index, Player* player_1, Player* player_2
 	std::cout << "\t2. Click enter, move the cursor to the field where you want to place the pawn.";
 	gotoxy(100, 32);
 	std::cout << "\t3. If a move is possible the board will be updated, otherwise you lose your move.";
+	gotoxy(100, 33);
+	std::cout << "\t4. If you are taking your pawns out of the board and your pawns are at columns";
+	gotoxy(100, 34);
+	std::cout << "\t   1, 3, 5 and your dices are : 2 and 4, then you have to click [F] and try again,";
+	gotoxy(100, 35);
+	std::cout << "\t   if you get 2 on at least one dice you can take pawn from column 2 out of the board.";
 }

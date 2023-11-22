@@ -75,7 +75,8 @@ void print_which_player_begins(int& player_index);
 void get_random_numbers(int* num1, int* num2);
 
 // This function will tell us if all pawns of a given player are in home
-bool check_if_all_pawns_in_home(char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN], int player_index);
+bool check_if_all_pawns_in_home(char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN], char player_sign);
+void check_if_pawns_in_home(Board* table_s, Player* player_1, Player* player_2, char player_sign);
 
 // This function allows us to make a move
 void move(Board* table_s, int& zn, int& star_x,
@@ -99,3 +100,6 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 
 // function that updates the bar
 bool update_bar(char bar[], char player_sign, int row_index);
+
+bool take_pawn_off_the_board(Player* player_1, Player* player_2, Board* table_s,
+    int column_index, int row_index, char player_sign);

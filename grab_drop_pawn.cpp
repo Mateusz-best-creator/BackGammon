@@ -44,6 +44,15 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 
 	// beacuse we index from 0
 	column_index--;
+	bool took_pawn_from_the_board = false;
+
+	// Case when we want to remove the pawn from the board
+	if ((player_sign == 'B' && player_1->can_take_pawns_from_the_board) ||
+		(player_sign == 'R' && player_2->can_take_pawns_from_the_board))
+	{
+		took_pawn_from_the_board = take_pawn_off_the_board(player_1, player_2, table_s, column_index + 1, row_index, player_sign);
+	}
+	if (took_pawn_from_the_board) { return; }
 
 	bool inserted = true;
 
@@ -103,6 +112,10 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 			// Only if we succesfully inserted the element we want to change the background and "inserted" variable
 			inserting_element = !inserting_element;
 			background_color = LIGHTGREEN;
+
+			int player_index;
+			if (player_sign == 'B') { player_index = 1; }
+			else { player_index = 2; }
 		}
 	}
 }
