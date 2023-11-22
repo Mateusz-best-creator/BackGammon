@@ -47,7 +47,7 @@ bool check_if_all_pawns_in_home(char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_
 			}
 			else
 			{
-				if (pawns[i][j] == player_sign && i <= 17)
+				if (pawns[i][j] == player_sign && i < 18)
 				{
 					return false;
 				}

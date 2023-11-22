@@ -50,9 +50,14 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
 	if ((player_sign == 'B' && player_1->can_take_pawns_from_the_board) ||
 		(player_sign == 'R' && player_2->can_take_pawns_from_the_board))
 	{
-		took_pawn_from_the_board = take_pawn_off_the_board(player_1, player_2, table_s, column_index + 1, row_index, player_sign);
+		took_pawn_from_the_board = take_pawn_of_the_board(player_1, player_2, table_s, column_index + 1, row_index, player_sign);
 	}
-	if (took_pawn_from_the_board) { return; }
+	if (took_pawn_from_the_board) 
+	{
+		if (player_sign == 'B') { player_1->number_of_removed_pawns++; }
+		else { player_2->number_of_removed_pawns++; }
+		return; 
+	}
 
 	bool inserted = true;
 

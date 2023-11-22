@@ -101,5 +101,5 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 // function that updates the bar
 bool update_bar(char bar[], char player_sign, int row_index);
 
-bool take_pawn_off_the_board(Player* player_1, Player* player_2, Board* table_s,
+bool take_pawn_of_the_board(Player* player_1, Player* player_2, Board* table_s,
     int column_index, int row_index, char player_sign);

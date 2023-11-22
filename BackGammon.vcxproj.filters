@@ -105,7 +105,7 @@
     <ClCompile Include="removed_pawns_interface.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
-    <ClCompile Include="take_pawn_off_the_board.cpp">
+    <ClCompile Include="take_pawn_of_the_board.cpp">
       <Filter>Source Files\move</Filter>
     </ClCompile>
   </ItemGroup>
