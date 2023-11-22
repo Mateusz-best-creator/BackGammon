@@ -108,6 +108,9 @@
     <ClCompile Include="take_pawn_of_the_board.cpp">
       <Filter>Source Files\move</Filter>
     </ClCompile>
+    <ClCompile Include="check_if_player_won.cpp">
+      <Filter>Source Files\winning</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="conio.h">

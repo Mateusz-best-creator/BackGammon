@@ -37,7 +37,7 @@ struct Player
     int number_of_removed_pawns;
 };
 
-void start_game();
+void start_game(int player_1_points, int player_2_points);
 
 /*
     Helper functions to initialize and print the table
@@ -57,7 +57,7 @@ void print_table(Board* table_s);
 void initialize_table(Board* table_s);
 
 // Function to play the game
-bool play(Player* player_1, Player* player_2, Board* table_s, int player_index);
+bool play(Player* player_1, Player* player_2, Board* table_s, int player_index, bool& start_a_new_game);
 
 /*
     Functions for printing the interfaces
@@ -101,5 +101,7 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 // function that updates the bar
 bool update_bar(char bar[], char player_sign, int row_index);
 
-bool take_pawn_of_the_board(Player* player_1, Player* player_2, Board* table_s,
+bool take_pawn_off_the_board(Player* player_1, Player* player_2, Board* table_s,
     int column_index, int row_index, char player_sign);
+
+bool check_if_player_won(Player* player);

@@ -2,7 +2,7 @@
 #include "functions_definitions.h"
 #include "conio.h"
 
-bool play(Player* player_1, Player* player_2, Board* table_s, int player_index)
+bool play(Player* player_1, Player* player_2, Board* table_s, int player_index, bool& start_a_new_game)
 {
 	textcolor(LIGHTGRAY);
 	// Generate two random numbers and display them	
@@ -72,6 +72,24 @@ bool play(Player* player_1, Player* player_2, Board* table_s, int player_index)
 
 		move(table_s, zn, star_x, star_y, background_color,
 			zero, inserting_element, player_sign, player_1, player_2);
+
+		// After making some move check if the player won the game
+		if (player_index == 1)
+		{
+			if (check_if_player_won(player_1))
+			{
+				start_a_new_game = true;
+				return true;
+			}
+		}
+		else
+		{
+			if (check_if_player_won(player_2))
+			{
+				start_a_new_game = true;
+				return true;
+			}
+		}
 
 	} while (zn != 'F' && zn != 'Q');
 	clrscr();

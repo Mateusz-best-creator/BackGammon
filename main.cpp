@@ -18,6 +18,11 @@ int main()
 	Conio2_Init();
 #endif
 
+	// Clear and close the file
+	FILE* file;
+	fopen_s(&file, "state_of_the_game_readable.txt", "w");
+	fclose(file);
+
 	// Initialize the game
 	gotoxy(40, 10);
 	cputs("Choose type of the game:");
@@ -30,7 +35,7 @@ int main()
 	clrscr();
 	if (zn == '1')
 	{
-		start_game();
+		start_game(0, 0);
 	}
 	else
 	{

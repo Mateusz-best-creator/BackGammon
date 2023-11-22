@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="check_all_pawns_in_home.cpp" />
+    <ClCompile Include="check_if_player_won.cpp" />
     <ClCompile Include="conio.cpp" />
     <ClCompile Include="grab_drop_pawn.cpp" />
     <ClCompile Include="initialize_columns.cpp" />
