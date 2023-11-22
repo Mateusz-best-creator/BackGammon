@@ -31,9 +31,9 @@ struct Player
     int points;
     char pawn_char;
     int player_index;
-    bool can_take_pieces_of_the_board = false;
     int dice1, dice2;
-    char removed_pawns[NUMBER_OF_PAWNS_FOR_ONE_PLAYER] = { 'b', 'b', 'b' };
+    bool can_take_pawns_from_the_board;
+    char removed_pawns[NUMBER_OF_PAWNS_FOR_ONE_PLAYER];
     int number_of_removed_pawns;
 };
 

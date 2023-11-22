@@ -1,7 +1,6 @@
 #include <iostream>
 #include "functions_definitions.h"
 #include "conio.h"
-#include <stdlib.h>
 
 void start_game()
 {
@@ -11,25 +10,12 @@ void start_game()
 	bool first_time = true;
 
 	// Initialize the board with default pawn places
-	Board* table = (Board*)malloc(sizeof(Board));
+	Board* table = new Board();
 	initialize_table(table);
 
 	// Initialize both players
-	Player* player_1 = (Player*)malloc(sizeof(Player));
-	Player* player_2 = (Player*)malloc(sizeof(Player));
-
-	// Initialize all "startup" variables
-	player_1->pawn_char = 'B';
-	player_2->pawn_char = 'R';
-
-	player_1->points = 0;
-	player_2->points = 0;
-
-	player_1->player_index = 1;
-	player_2->player_index = 2;
-
-	player_1->number_of_removed_pawns = 0;
-	player_2->number_of_removed_pawns = 0;
+	Player* player_1 = new Player{ 0, 'B', 1, 0, 0, false, {}, 0 };
+	Player* player_2 = new Player{ 0, 'R', 2, 0, 0, false, {}, 0 };
 
 	// This index will keep track which player now makes a move
 	int player_index = 1;
@@ -47,7 +33,6 @@ void start_game()
 	{
 		print_table(table);
 		print_top_interface(player_1, player_2, false);
-		print_removed_pawns_interface(player_1, player_2);
 		zn = getch();
 
 		if (zn == 'C')
@@ -87,9 +72,9 @@ void start_game()
 	_setcursortype(_NORMALCURSOR);	// show the cursor so it will be visible after the program ends
 
 	// After the game free the memory to avoid memory leaks
-	free(table);
+	delete table;
 
 	// After the game free the memory
-	free(player_1);
-	free(player_2);
+	delete player_1;
+	delete player_2;
 }

@@ -50,6 +50,9 @@ bool play(Player* player_1, Player* player_2, Board* table_s, int player_index)
 		// Print table
 		print_table(table_s);
 
+		// Print interface for removed pawns
+		print_removed_pawns_interface(player_1, player_2);
+
 		// Set some visual attributes
 		textbackground(background_color);
 
