@@ -4,15 +4,23 @@
 
 void update_player_removed_paws(Player* player, Board* table_s, int column_index, int row_index)
 {
+	// Decrement column_index beacuse we are indexing from 0
+	column_index--;
+
 	player->removed_pawns[player->number_of_removed_pawns] = player->pawn_char;
 	player->number_of_removed_pawns++;
 
-	table_s->pawns[column_index - 1][0] = 'E';
+	gotoxy(1, 1);
+	std::cout << "CI: " << column_index;
+
+	table_s->pawns[column_index][0] = 'E';
 	int how_many_pawns_in_column = 0;
 	for (size_t i = 0; i < NUMBER_OF_ROWS_IN_COLUMN; ++i)
 	{
 		if (table_s->pawns[column_index][i] == player->pawn_char) { how_many_pawns_in_column++; }
 	}
+	gotoxy(1, 3);
+	std::cout << "Pawns: " << how_many_pawns_in_column;
 	for (size_t i = 0; i < NUMBER_OF_ROWS_IN_COLUMN; ++i)
 	{
 		if (i < how_many_pawns_in_column)
@@ -25,16 +33,23 @@ void update_player_removed_paws(Player* player, Board* table_s, int column_index
 
 void remove_pawn(Player* player, Board* table_s, int column_index, int row_index)
 {
-	if (column_index == player->dice1)
+	if (player->pawn_char == 'B')
 	{
-		player->dice1 = 0;
-		update_player_removed_paws(player, table_s, column_index, row_index);
+		if (column_index == player->dice1)
+		{
+			player->dice1 = 0;
+			update_player_removed_paws(player, table_s, column_index, row_index);
+		}
+		if (column_index == player->dice2)
+		{
+			player->dice2 = 0;
+			update_player_removed_paws(player, table_s, column_index, row_index);
+			return;
+		}
 	}
-	if (column_index == player->dice2)
+	else
 	{
-		player->dice2 = 0;
-		update_player_removed_paws(player, table_s, column_index, row_index);
-		return;
+
 	}
 }
 

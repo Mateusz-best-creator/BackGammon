@@ -12,7 +12,6 @@ void check_if_pawns_in_home(Board* table_s, Player* player_1, Player* player_2, 
 		}
 		else
 		{
-			//gotoxy()
 			player_2->can_take_pawns_from_the_board = true;
 		}
 	}
