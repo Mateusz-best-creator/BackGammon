@@ -110,7 +110,7 @@ void grab_drop_pawn(Board* table_s, int& star_x, int& star_y,
     Player* player_1, Player* player_2);
 
 // This function allows us to save state of the game to a file
-void write_to_file(const char board[][WIDTH]);
+void write_to_file(const char board[][WIDTH], Player* player_1, Player* player_2);
 
 // This function allows us to save state of the game to a binary file
 void write_to_binary_file(const char table[][WIDTH]);

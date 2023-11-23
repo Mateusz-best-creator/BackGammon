@@ -23,7 +23,7 @@ void start_game(PlayersDatabase* database, Player* player_1, Player* player_2)
 	int player_index = 1;
 
 	// Print initial state of the game
-	write_to_file(table->table);
+	write_to_file(table->table, player_1, player_2);
 
 	// This boolean value will indicate if we want to stop the game
 	bool stop_playing = false;
@@ -67,8 +67,11 @@ void start_game(PlayersDatabase* database, Player* player_1, Player* player_2)
 				if (player_index == 1) { player_index = 2; }
 				else { player_index = 1; }
 
-				// Print state of the game to the file
-				write_to_file(table->table);
+				if (!stop_playing)
+				{
+					// Print state of the game to the file
+					write_to_file(table->table, player_1, player_2);
+				}
 			} while (!stop_playing);
 		}
 

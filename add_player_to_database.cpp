@@ -26,10 +26,9 @@ void add_player_to_database(PlayersDatabase* database)
 	int length;
 	length = getche();
 	length -= 48;
-	gotoxy(1, 10);
-	std::cout << length;
+	
 	gotoxy(1, 2);
-	std::cout << "Give name for a player ";
+	std::cout << "Give the name for a player ";
 
 	// Dynamically initialize the array of chars + 1 for '\0' character
 	char* name = new char[length + 1];

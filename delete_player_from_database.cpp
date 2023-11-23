@@ -35,8 +35,25 @@ void delete_player_from_database(PlayersDatabase* database)
 	}
 	std::cout << "\nRemoving player " << index << "...";
 
-	database->number_of_players--;
-	//delete[] database->players[index].removed_pawns;
+	for (int i = 0; i < database->number_of_players; ++i)
+	{
+		if (i == index)
+		{
+			/*
+				For some reason above line crushes the entire program :(
+			*/
+			// Release the memory for removed player
+			//delete[] database->players[i].name;
 
+			// Found the player, remove and shift others
+			for (int j = i; j < database->number_of_players - 1; ++j)
+			{
+				database->players[j] = database->players[j + 1];
+			}
+
+			// Decrement number of players
+			database->number_of_players--;
+		}
+	}
 }
 
