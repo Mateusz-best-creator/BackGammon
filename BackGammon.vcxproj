@@ -130,7 +130,9 @@
     <ClCompile Include="add_player_to_database.cpp" />
     <ClCompile Include="check_all_pawns_in_home.cpp" />
     <ClCompile Include="check_if_player_won.cpp" />
+    <ClCompile Include="choose_indexes.cpp" />
     <ClCompile Include="conio.cpp" />
+    <ClCompile Include="database_functionality.cpp" />
     <ClCompile Include="database_interface.cpp" />
     <ClCompile Include="grab_drop_pawn.cpp" />
     <ClCompile Include="initialize_columns.cpp" />
@@ -149,6 +151,7 @@
     <ClCompile Include="print_table.cpp" />
     <ClCompile Include="random_numbers.cpp" />
     <ClCompile Include="removed_pawns_interface.cpp" />
+    <ClCompile Include="delete_player_from_database.cpp" />
     <ClCompile Include="start_game.cpp" />
     <ClCompile Include="take_pawn_of_the_board.cpp" />
     <ClCompile Include="top_interface.cpp" />

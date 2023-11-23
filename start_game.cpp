@@ -2,8 +2,14 @@
 #include "functions_definitions.h"
 #include "conio.h"
 
-void start_game(int player_1_points, int player_2_points)
+void start_game(Player* player_1, Player* player_2)
 {
+	// We need to do some preprocessing
+	player_1->pawn_char = 'B';
+	player_2->pawn_char = 'R';
+	player_1->player_index = 1;
+	player_2->player_index = 2;
+
 	int zn = 0;
 
 	// This variable will indicate if user entered [P] to play for the first time
@@ -12,10 +18,6 @@ void start_game(int player_1_points, int player_2_points)
 	// Initialize the board with default pawn places
 	Board* table = new Board();
 	initialize_table(table);
-
-	// Initialize both players
-	Player* player_1 = new Player{ player_1_points, 'B', 1, 0, 0, false, {}, 0, {"Mateusz"} };
-	Player* player_2 = new Player{ player_2_points, 'R', 2, 0, 0, false, {}, 0, {"Ola"} };
 
 	// This index will keep track which player now makes a move
 	int player_index = 1;
@@ -82,13 +84,16 @@ void start_game(int player_1_points, int player_2_points)
 	int p1_points = player_1->points;
 	int p2_points = player_2->points;
 
-	// After the game free the memory
-	delete player_1;
-	delete player_2;
 
 	// After everything check if we want to start a new game
 	if (start_a_new_game)
 	{
-		start_game(p1_points, p2_points);
+		start_game(player_1, player_2);
+	}
+	if (!start_a_new_game)
+	{
+		// After the game free the memory
+		//delete player_1;
+		//delete player_2;
 	}
 }

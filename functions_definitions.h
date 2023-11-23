@@ -56,7 +56,7 @@ struct PlayersDatabase
     }
 };
 
-void start_game(int player_1_points, int player_2_points);
+void start_game(Player* player_1, Player* player_2);
 
 /*
     Helper functions to initialize and print the table
@@ -138,3 +138,9 @@ void print_players_database(PlayersDatabase* database);
 PlayersDatabase* create_database();
 
 void add_player_to_database(PlayersDatabase* database);
+
+void database_functionality(PlayersDatabase* database);
+
+void delete_player_from_database(PlayersDatabase* database);
+
+void choose_indexes(int* player_1_index, int* player_2_index);

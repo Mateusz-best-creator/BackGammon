@@ -126,6 +126,15 @@
     <ClCompile Include="add_player_to_database.cpp">
       <Filter>Source Files\players_database</Filter>
     </ClCompile>
+    <ClCompile Include="database_functionality.cpp">
+      <Filter>Source Files\players_database</Filter>
+    </ClCompile>
+    <ClCompile Include="delete_player_from_database.cpp">
+      <Filter>Source Files\players_database</Filter>
+    </ClCompile>
+    <ClCompile Include="choose_indexes.cpp">
+      <Filter>Source Files\players_database</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="conio.h">

@@ -38,8 +38,8 @@ int main()
 	clrscr();
 	if (zn == '1')
 	{
-		//print_players_database(database);
-		start_game(0, 0);
+		database_functionality(database);
+		//start_game(0, 0);
 	}
 	else
 	{
