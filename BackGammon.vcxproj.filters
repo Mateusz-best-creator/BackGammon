@@ -40,6 +40,9 @@
     <Filter Include="Source Files\players_database">
       <UniqueIdentifier>{a70abe8c-4781-4e04-82e0-6e9e53450054}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\load_game_from_file">
+      <UniqueIdentifier>{6d74c9a8-27e2-412c-a2d9-5677a9e962f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -134,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="choose_indexes.cpp">
       <Filter>Source Files\players_database</Filter>
+    </ClCompile>
+    <ClCompile Include="load_table_from_file.cpp">
+      <Filter>Source Files\load_game_from_file</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

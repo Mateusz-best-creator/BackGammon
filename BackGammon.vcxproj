@@ -140,6 +140,7 @@
     <ClCompile Include="initialize_pawns.cpp" />
     <ClCompile Include="initialize_table.cpp" />
     <ClCompile Include="insert_pawn.cpp" />
+    <ClCompile Include="load_table_from_file.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="move.cpp" />
     <ClCompile Include="options_interface.cpp" />

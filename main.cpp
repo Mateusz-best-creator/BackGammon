@@ -27,22 +27,27 @@ int main()
 	PlayersDatabase* database = create_database();
 
 	// Initialize the game
-	gotoxy(40, 10);
+	gotoxy(10, 10);
 	cputs("Choose type of the game:");
-	gotoxy(40, 12);
+	gotoxy(10, 12);
 	cputs("[1] -> play with other player");
-	gotoxy(75, 12);
+	gotoxy(45, 12);
 	cputs("[2] -> play with AI");
+	gotoxy(70, 12);
+	cputs("[3] -> load game from file");
 	int zn;
 	zn = getch();
 	clrscr();
 	if (zn == '1')
 	{
 		database_functionality(database);
-		//start_game(0, 0);
 	}
-	else
+	else if (zn == '2')
 	{
 		//start_game_with_ai();
+	}
+	else if (zn == '3')
+	{
+		load_table_from_file();
 	}
 }

@@ -144,3 +144,5 @@ void database_functionality(PlayersDatabase* database);
 void delete_player_from_database(PlayersDatabase* database);
 
 void choose_indexes(int* player_1_index, int* player_2_index);
+
+void load_table_from_file();
