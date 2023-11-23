@@ -25,3 +25,4 @@ void choose_indexes(int* player_1_index, int* player_2_index)
 	std::this_thread::sleep_for(std::chrono::seconds(2));
 	clrscr();
 }
+

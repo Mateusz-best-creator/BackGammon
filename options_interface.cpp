@@ -13,6 +13,8 @@ void print_startup_options_interface()
 	cputs("[C] = change color");
 	gotoxy(100, 14);
 	cputs("[Q] = quit game");
+	gotoxy(100, 16);
+	cputs("[D] = go to database");
 }
 
 void print_playing_interface()

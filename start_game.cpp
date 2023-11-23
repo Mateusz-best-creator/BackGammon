@@ -2,7 +2,7 @@
 #include "functions_definitions.h"
 #include "conio.h"
 
-void start_game(Player* player_1, Player* player_2)
+void start_game(PlayersDatabase* database, Player* player_1, Player* player_2)
 {
 	// We need to do some preprocessing
 	player_1->pawn_char = 'B';
@@ -25,10 +25,14 @@ void start_game(Player* player_1, Player* player_2)
 	// Print initial state of the game
 	write_to_file(table->table);
 
+	// This boolean value will indicate if we want to stop the game
 	bool stop_playing = false;
 
 	// This value will indicate if we want to start a new game
 	bool start_a_new_game = false;
+
+	// This boolean value will indicate whether or not we want to go to our database interface
+	bool go_to_database;
 
 	do
 	{
@@ -68,12 +72,18 @@ void start_game(Player* player_1, Player* player_2)
 			} while (!stop_playing);
 		}
 
+		else if (zn == 'D')
+		{
+			go_to_database = true;
+			break;
+		}
+
 		if (start_a_new_game)
 		{
 			clrscr();
 			break;
 		}
-
+		go_to_database = false;
 	} while (zn != 'Q' && zn != 'q');
 
 	_setcursortype(_NORMALCURSOR);	// show the cursor so it will be visible after the program ends
@@ -81,19 +91,24 @@ void start_game(Player* player_1, Player* player_2)
 	// After the game free the memory to avoid memory leaks
 	delete table;
 
-	int p1_points = player_1->points;
-	int p2_points = player_2->points;
-
 
 	// After everything check if we want to start a new game
 	if (start_a_new_game)
 	{
-		start_game(player_1, player_2);
+		start_game(database, player_1, player_2);
+		return;
 	}
+
+	if (go_to_database)
+	{
+		database_functionality(database);
+		return;
+	}
+
 	if (!start_a_new_game)
 	{
 		// After the game free the memory
-		//delete player_1;
-		//delete player_2;
+		//delete[] database;
+		return;
 	}
 }

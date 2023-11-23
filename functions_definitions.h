@@ -56,7 +56,7 @@ struct PlayersDatabase
     }
 };
 
-void start_game(Player* player_1, Player* player_2);
+void start_game(PlayersDatabase* database, Player* player_1, Player* player_2);
 
 /*
     Helper functions to initialize and print the table
