@@ -127,11 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="add_player_to_database.cpp" />
     <ClCompile Include="check_all_pawns_in_home.cpp" />
     <ClCompile Include="check_if_player_won.cpp" />
     <ClCompile Include="conio.cpp" />
+    <ClCompile Include="database_interface.cpp" />
     <ClCompile Include="grab_drop_pawn.cpp" />
     <ClCompile Include="initialize_columns.cpp" />
+    <ClCompile Include="create_database.cpp" />
     <ClCompile Include="initialize_pawns.cpp" />
     <ClCompile Include="initialize_table.cpp" />
     <ClCompile Include="insert_pawn.cpp" />
@@ -139,6 +142,7 @@
     <ClCompile Include="move.cpp" />
     <ClCompile Include="options_interface.cpp" />
     <ClCompile Include="play.cpp" />
+    <ClCompile Include="print_player_database.cpp" />
     <ClCompile Include="player_interface.cpp" />
     <ClCompile Include="initialize_bar.cpp" />
     <ClCompile Include="print_pawns.cpp" />

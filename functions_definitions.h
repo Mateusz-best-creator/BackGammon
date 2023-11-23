@@ -1,4 +1,5 @@
 #pragma once
+#include <cstring>
 
 // Here we will define all constants that we will use throughout our game
 #define TOP_LEFT_X_CORNER_COORDINATE 20 // Based on the size of the screen we should adjust these values
@@ -15,6 +16,8 @@
 #define BAR_SIZE 7
 
 #define NUMBER_OF_PAWNS_FOR_ONE_PLAYER 15
+
+#define MAX_NUMBER_OF_PLAYERS 5
 
 
 struct Board
@@ -35,6 +38,22 @@ struct Player
     bool can_take_pawns_from_the_board;
     char removed_pawns[NUMBER_OF_PAWNS_FOR_ONE_PLAYER];
     int number_of_removed_pawns;
+    const char* name;
+};
+
+struct PlayersDatabase
+{
+    Player* players = new Player[MAX_NUMBER_OF_PLAYERS];
+    int number_of_players;
+
+    // Constructor
+    PlayersDatabase() : players(new Player[MAX_NUMBER_OF_PLAYERS]), number_of_players(0) {}
+
+    // Destructor to release the memory
+    ~PlayersDatabase()
+    {
+        delete[] players;
+    }
 };
 
 void start_game(int player_1_points, int player_2_points);
@@ -68,6 +87,8 @@ void print_player_interface(int player_index, Player* player_1, Player* player_2
 void print_startup_options_interface();
 void print_playing_interface();
 void print_removed_pawns_interface(Player* player_1, Player* player_2);
+void print_database_interface();
+
 // This function will display for us which player starts the game
 void print_which_player_begins(int& player_index);
 
@@ -105,3 +126,15 @@ bool take_pawn_off_the_board(Player* player_1, Player* player_2, Board* table_s,
     int column_index, int row_index, char player_sign);
 
 bool check_if_player_won(Player* player);
+
+/*
+    All functions that cover the functionality of the database
+*/
+
+// This function print the entire database of players in our game
+void print_players_database(PlayersDatabase* database);
+
+// Create and initial our database of players
+PlayersDatabase* create_database();
+
+void add_player_to_database(PlayersDatabase* database);

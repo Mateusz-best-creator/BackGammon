@@ -23,6 +23,9 @@ int main()
 	fopen_s(&file, "state_of_the_game_readable.txt", "w");
 	fclose(file);
 
+	// Initialize players database
+	PlayersDatabase* database = create_database();
+
 	// Initialize the game
 	gotoxy(40, 10);
 	cputs("Choose type of the game:");
@@ -35,6 +38,7 @@ int main()
 	clrscr();
 	if (zn == '1')
 	{
+		//print_players_database(database);
 		start_game(0, 0);
 	}
 	else

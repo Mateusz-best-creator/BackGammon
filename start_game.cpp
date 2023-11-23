@@ -14,8 +14,8 @@ void start_game(int player_1_points, int player_2_points)
 	initialize_table(table);
 
 	// Initialize both players
-	Player* player_1 = new Player{ player_1_points, 'B', 1, 0, 0, false, {}, 0 };
-	Player* player_2 = new Player{ player_2_points, 'R', 2, 0, 0, false, {}, 0 };
+	Player* player_1 = new Player{ player_1_points, 'B', 1, 0, 0, false, {}, 0, {"Mateusz"} };
+	Player* player_2 = new Player{ player_2_points, 'R', 2, 0, 0, false, {}, 0, {"Ola"} };
 
 	// This index will keep track which player now makes a move
 	int player_index = 1;

@@ -37,6 +37,9 @@
     <Filter Include="Source Files\write_to_file">
       <UniqueIdentifier>{e03a5f2e-ee82-4929-b868-0312b47cb117}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\players_database">
+      <UniqueIdentifier>{a70abe8c-4781-4e04-82e0-6e9e53450054}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -110,6 +113,18 @@
     </ClCompile>
     <ClCompile Include="check_if_player_won.cpp">
       <Filter>Source Files\winning</Filter>
+    </ClCompile>
+    <ClCompile Include="print_player_database.cpp">
+      <Filter>Source Files\players_database</Filter>
+    </ClCompile>
+    <ClCompile Include="create_database.cpp">
+      <Filter>Source Files\players_database</Filter>
+    </ClCompile>
+    <ClCompile Include="database_interface.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="add_player_to_database.cpp">
+      <Filter>Source Files\players_database</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
