@@ -48,6 +48,6 @@ int main()
 	}
 	else if (zn == '3')
 	{
-		load_table_from_file();
+		start_game(database, &(database->players[0]), &(database->players[1]), true);
 	}
 }

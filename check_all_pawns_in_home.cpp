@@ -4,7 +4,7 @@
 
 void check_if_pawns_in_home(Board* table_s, Player* player_1, Player* player_2, char player_sign)
 {
-	if (check_if_all_pawns_in_home(table_s->pawns, player_sign))
+	if (check_if_all_pawns_in_home(table_s, player_sign))
 	{
 		if (player_sign == 'B')
 		{
@@ -32,25 +32,45 @@ void check_if_pawns_in_home(Board* table_s, Player* player_1, Player* player_2, 
 	}
 }
 
-bool check_if_all_pawns_in_home(char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN], char player_sign)
+bool check_if_all_pawns_in_home(Board* table_s, char player_sign)
 {
+	// Check the board itself
 	for (int i = 0; i < NUMBER_OF_COLUMNS; ++i)
 	{
 		for (int j = 0; j < NUMBER_OF_ROWS_IN_COLUMN; ++j)
 		{
 			if (player_sign == 'B')
 			{
-				if (pawns[i][j] == player_sign && i > 5)
+				if (table_s->pawns[i][j] == player_sign && i > 5)
 				{
 					return false;
 				}
 			}
 			else
 			{
-				if (pawns[i][j] == player_sign && i < 18)
+				if (table_s->pawns[i][j] == player_sign && i < 18)
 				{
 					return false;
 				}
+			}
+		}
+	}
+
+	// Check the bars
+	for (size_t i = 0; i < BAR_SIZE; ++i)
+	{
+		if (player_sign == 'B')
+		{
+			if (table_s->player_1_bar[i] == player_sign)
+			{
+				return false;
+			}
+		}
+		else
+		{
+			if (table_s->player_2_bar[i] == player_sign)
+			{
+				return false;
 			}
 		}
 	}

@@ -2,7 +2,7 @@
 #include "functions_definitions.h"
 #include "conio.h"
 
-void start_game(PlayersDatabase* database, Player* player_1, Player* player_2)
+void start_game(PlayersDatabase* database, Player* player_1, Player* player_2, bool read_from_file)
 {
 	// We need to do some preprocessing
 	player_1->pawn_char = 'B';
@@ -18,6 +18,12 @@ void start_game(PlayersDatabase* database, Player* player_1, Player* player_2)
 	// Initialize the board with default pawn places
 	Board* table = new Board();
 	initialize_table(table);
+
+	// In case we read from file
+	if (read_from_file)
+	{
+		table = load_table_from_file();
+	}
 
 	// This index will keep track which player now makes a move
 	int player_index = 1;
@@ -98,7 +104,7 @@ void start_game(PlayersDatabase* database, Player* player_1, Player* player_2)
 	// After everything check if we want to start a new game
 	if (start_a_new_game)
 	{
-		start_game(database, player_1, player_2);
+		start_game(database, player_1, player_2, false);
 		return;
 	}
 

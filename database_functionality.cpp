@@ -20,5 +20,5 @@ void database_functionality(PlayersDatabase* database)
 	
 	int player_1_index, player_2_index;
 	choose_indexes(&player_1_index, &player_2_index);
-	start_game(database, &(database->players[player_1_index]), &(database->players[player_2_index]));
+	start_game(database, &(database->players[player_1_index]), &(database->players[player_2_index]), false);
 }

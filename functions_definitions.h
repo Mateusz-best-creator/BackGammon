@@ -56,7 +56,7 @@ struct PlayersDatabase
     }
 };
 
-void start_game(PlayersDatabase* database, Player* player_1, Player* player_2);
+void start_game(PlayersDatabase* database, Player* player_1, Player* player_2, bool load_from_file);
 
 /*
     Helper functions to initialize and print the table
@@ -96,7 +96,7 @@ void print_which_player_begins(int& player_index);
 void get_random_numbers(int* num1, int* num2);
 
 // This function will tell us if all pawns of a given player are in home
-bool check_if_all_pawns_in_home(char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN], char player_sign);
+bool check_if_all_pawns_in_home(Board* table_s, char player_sign);
 void check_if_pawns_in_home(Board* table_s, Player* player_1, Player* player_2, char player_sign);
 
 // This function allows us to make a move
@@ -145,4 +145,4 @@ void delete_player_from_database(PlayersDatabase* database);
 
 void choose_indexes(int* player_1_index, int* player_2_index);
 
-void load_table_from_file();
+Board* load_table_from_file();

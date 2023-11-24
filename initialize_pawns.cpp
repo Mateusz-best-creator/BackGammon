@@ -18,13 +18,13 @@ void initialize_pawns(char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN])
     for (int i = 0; i < 5; ++i)
     {
         // Comment it for testing
-        //pawns[5][i] = 'B';
-        //pawns[12][i] = 'B';
-        //pawns[11][i] = 'R';
-        //pawns[18][i] = 'R';
+        pawns[5][i] = 'B';
+        pawns[12][i] = 'B';
+        pawns[11][i] = 'R';
+        pawns[18][i] = 'R';
     }
                         // 3
-    for (int i = 0; i < 2; ++i)
+    for (int i = 0; i < 3; ++i)
     {
         pawns[7][i] = 'B';
         pawns[16][i] = 'R';
@@ -32,7 +32,7 @@ void initialize_pawns(char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN])
 
     for (int i = 0; i < 2; ++i)
     {
-        //pawns[23][i] = 'B';
-        //pawns[0][i] = 'R';
+        pawns[23][i] = 'B';
+        pawns[0][i] = 'R';
     }
 }
