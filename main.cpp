@@ -38,6 +38,7 @@ int main()
 	int zn;
 	zn = getch();
 	clrscr();
+	bool load_from_file = true;
 	if (zn == '1')
 	{
 		database_functionality(database);
@@ -48,6 +49,6 @@ int main()
 	}
 	else if (zn == '3')
 	{
-		start_game(database, &(database->players[0]), &(database->players[1]), true);
+		start_game(database, &(database->players[0]), &(database->players[1]), load_from_file);
 	}
 }

@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <iostream>
 
-Board* load_table_from_file()
+Board* load_table_from_file(Player* player_1, Player* player_2)
 {
     gotoxy(1, 1);
     Board* table = new Board();
@@ -26,18 +26,55 @@ Board* load_table_from_file()
         return table;
     }
 
-    unsigned int column, row;
-    char pawn_character;
+    unsigned int first_value, second_value;
+    char character;
 
     // Read and process the content of the file
-    while (fscanf_s(file, " %c %d %d", &pawn_character, sizeof(pawn_character), &column, &row) == 3) {
-        if (pawn_character == 'B' || pawn_character == 'R')
+    while (fscanf_s(file, " %c %d %d", &character, sizeof(character), &first_value, &second_value) == 3) {
+        // Set the pawns on the board
+        if (character == 'B' || character == 'R')
         {
-            table->pawns[column][row] = pawn_character;
+            table->pawns[first_value][second_value] = character;
+        }
+        // Set the points for players
+        else if (character == 'P')
+        {
+            player_1->points = first_value;
+            player_2->points = second_value;
+        }
+        // Set the pawns on bar for both players
+        else if (character == 'A')
+        {
+            // Set pawns on bar for first player
+            for (size_t i = 0; i < first_value; ++i)
+            {
+                table->player_1_bar[i] = 'B';
+            }
+            // Set pawns on bar for second player
+            for (size_t i = 0; i < second_value; ++i)
+            {
+                table->player_2_bar[i] = 'R';
+            }
+        }
+        // Set dropped pawns for both players
+        else if (character == 'D')
+        {
+            player_1->number_of_removed_pawns = first_value;
+            player_2->number_of_removed_pawns = second_value;
+            // Set removed pawns for first player
+            for (size_t i = 0; i < first_value; ++i)
+            {
+                player_1->removed_pawns[i] = 'B';
+            }
+            // Set removed pawns for second player
+            for (size_t i = 0; i < first_value; ++i)
+            {
+                player_2->removed_pawns[i] = 'R';
+            }
         }
         else
         {
-            printf("Unknown operation: %c\n", pawn_character);
+            printf("Unknown operation: %c\n", character);
         }
     }
 

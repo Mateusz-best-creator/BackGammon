@@ -56,7 +56,7 @@ struct PlayersDatabase
     }
 };
 
-void start_game(PlayersDatabase* database, Player* player_1, Player* player_2, bool load_from_file);
+void start_game(PlayersDatabase* database, Player* player_1, Player* player_2, bool& load_from_file);
 
 /*
     Helper functions to initialize and print the table
@@ -145,4 +145,4 @@ void delete_player_from_database(PlayersDatabase* database);
 
 void choose_indexes(int* player_1_index, int* player_2_index);
 
-Board* load_table_from_file();
+Board* load_table_from_file(Player* player_1, Player* player_2);
