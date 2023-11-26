@@ -5,7 +5,7 @@
 bool play(Player* player_1, Player* player_2, Board* table_s, int player_index, bool& start_a_new_game)
 {
 	textcolor(LIGHTGRAY);
-	// Generate two random numbers and display them	
+	// Generate two random numbers and display them
 	int dice1, dice2;
 	get_random_numbers(&dice1, &dice2);
 	int dice_sum = dice1 + dice2;

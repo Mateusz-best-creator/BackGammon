@@ -71,6 +71,20 @@ void start_game(PlayersDatabase* database, Player* player_1, Player* player_2, b
 					first_time = false;
 					print_which_player_begins(player_index);
 				}
+				gotoxy(1, 1);
+				std::cout << "ID: " << player_index << " Na" << player_2->name;
+				if (player_index == 2 && player_2->name == "AI")
+				{
+					AI_make_move(table, player_2);
+					if (check_if_player_won(player_2))
+					{
+						start_a_new_game = true;
+						break;
+					}
+					if (player_index == 1) { player_index = 2; }
+					else { player_index = 1; }
+					continue;
+				}
 
 				stop_playing = play(player_1, player_2, table, player_index, start_a_new_game);
 				// Change player_index

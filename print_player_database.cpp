@@ -34,4 +34,16 @@ void print_players_database(PlayersDatabase* database)
 			std::cout << "Player name: " << database->players[i].name;
 		}
 	}
+	gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE);
+	std::cout << "List of AI bots:";
+
+	// For now I created 1 bot so will not create a loop
+	gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE + 2);
+	std::cout << "Bot 1:";
+	gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE + 4);
+	std::cout << "Bot score: " << database->players[5].points;
+	gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE + 5);
+	std::cout << "Bot name: " << database->players[5].name;
+	gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE + 6);
+	std::cout << "Bot id: " << 5;
 }

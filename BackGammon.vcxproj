@@ -128,8 +128,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="add_player_to_database.cpp" />
+    <ClCompile Include="AI_make_move.cpp" />
+    <ClCompile Include="AI_strategy.cpp" />
     <ClCompile Include="check_all_pawns_in_home.cpp" />
     <ClCompile Include="check_if_player_won.cpp" />
+    <ClCompile Include="check_insert_conditions.cpp" />
     <ClCompile Include="choose_indexes.cpp" />
     <ClCompile Include="conio.cpp" />
     <ClCompile Include="database_functionality.cpp" />

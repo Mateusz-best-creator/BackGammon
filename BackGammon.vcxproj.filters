@@ -43,6 +43,9 @@
     <Filter Include="Source Files\load_game_from_file">
       <UniqueIdentifier>{6d74c9a8-27e2-412c-a2d9-5677a9e962f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\AI">
+      <UniqueIdentifier>{c62045d5-1808-484a-8cfb-5eaf77ac9b1a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -140,6 +143,15 @@
     </ClCompile>
     <ClCompile Include="load_table_from_file.cpp">
       <Filter>Source Files\load_game_from_file</Filter>
+    </ClCompile>
+    <ClCompile Include="AI_strategy.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI_make_move.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="check_insert_conditions.cpp">
+      <Filter>Source Files\AI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -6,12 +6,18 @@ PlayersDatabase* create_database()
 	Player* player_1 = new Player{ 0, 'B', 1, 0, 0, false, {}, 0, {"Mateusz"} };
 	Player* player_2 = new Player{ 0, 'R', 2, 0, 0, false, {}, 0, {"Ola"} };
 
+	// Initialize AI player
+	Player* player_AI = new Player{ 0, 'R', 2, 0, 0, false, {}, 0, {"AI"} };
+
 	PlayersDatabase* database = new PlayersDatabase();
 
 	// Add two initial players, later we will be able to add more
 	database->players[0] = *player_1;
 	database->players[1] = *player_2;
 	database->number_of_players = 2;
+
+	// AI bot will be treated differently
+	database->players[5] = *player_AI;
 	
 	return database;
 }

@@ -6,6 +6,7 @@
 #include <stdlib.h>
 
 #include "functions_definitions.h"
+#include "AI.h"
 
 
 int main()
@@ -32,9 +33,7 @@ int main()
 	gotoxy(10, 12);
 	cputs("[1] -> play with other player");
 	gotoxy(45, 12);
-	cputs("[2] -> play with AI");
-	gotoxy(70, 12);
-	cputs("[3] -> load game from file");
+	cputs("[2] -> load game from file");
 	int zn;
 	zn = getch();
 	clrscr();
@@ -44,10 +43,6 @@ int main()
 		database_functionality(database);
 	}
 	else if (zn == '2')
-	{
-		//start_game_with_ai();
-	}
-	else if (zn == '3')
 	{
 		start_game(database, &(database->players[0]), &(database->players[1]), load_from_file);
 	}

@@ -17,9 +17,6 @@
 
 #define NUMBER_OF_PAWNS_FOR_ONE_PLAYER 15
 
-#define MAX_NUMBER_OF_PLAYERS 5
-
-
 struct Board
 {
     char table[HEIGHT][WIDTH];
@@ -41,13 +38,16 @@ struct Player
     const char* name;
 };
 
+#define MAX_NUMBER_OF_PLAYERS 5
+#define MAX_NUMBER_OF_AI_PLAYERS 1
+
 struct PlayersDatabase
 {
-    Player* players = new Player[MAX_NUMBER_OF_PLAYERS];
+    Player* players = new Player[MAX_NUMBER_OF_PLAYERS + MAX_NUMBER_OF_AI_PLAYERS];
     int number_of_players;
 
     // Constructor
-    PlayersDatabase() : players(new Player[MAX_NUMBER_OF_PLAYERS]), number_of_players(0) {}
+    PlayersDatabase() : players(new Player[MAX_NUMBER_OF_PLAYERS + MAX_NUMBER_OF_AI_PLAYERS]), number_of_players(0) {}
 
     // Destructor to release the memory
     ~PlayersDatabase()
@@ -122,6 +122,8 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 // function that updates the bar
 bool update_bar(char bar[], char player_sign, int row_index);
 
+void update_bar_pawns(char bar[BAR_SIZE], char player_sign, int pawns_on_bar);
+
 bool take_pawn_off_the_board(Player* player_1, Player* player_2, Board* table_s,
     int column_index, int row_index, char player_sign);
 
@@ -146,3 +148,9 @@ void delete_player_from_database(PlayersDatabase* database);
 void choose_indexes(int* player_1_index, int* player_2_index);
 
 Board* load_table_from_file(Player* player_1, Player* player_2);
+
+/*
+    Functions that allows us to create an AI player
+*/
+bool AI_make_move(Board* table_s, Player* player_AI);
+bool check_insert_conditions(Board* table_s, Player* player_AI, int i, int j, const char AI_pawn_char, int dice_value);
