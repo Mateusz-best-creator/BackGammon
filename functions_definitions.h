@@ -154,3 +154,4 @@ Board* load_table_from_file(Player* player_1, Player* player_2);
 */
 bool AI_make_move(Board* table_s, Player* player_AI);
 bool check_insert_conditions(Board* table_s, Player* player_AI, int i, int j, const char AI_pawn_char, int dice_value);
+void AI_insert_pawn_from_bar(Board* table_s, Player* player_AI, int dice_value, char AI_pawn_char);
