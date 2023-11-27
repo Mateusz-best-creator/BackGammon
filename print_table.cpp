@@ -1,6 +1,7 @@
 #include <iostream>
 #include "functions_definitions.h"
 #include "conio.h"
+#include "board.h"
 
 void print_table(Board* table_s)
 {

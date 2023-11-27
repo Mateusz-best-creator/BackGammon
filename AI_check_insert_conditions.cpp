@@ -1,4 +1,5 @@
 #include "AI.h"
+#include "board.h"
 
 
 bool AI_check_insert_conditions(Board* table_s, Player* player_AI, int i, int j, const char AI_pawn_char, int dice_value)

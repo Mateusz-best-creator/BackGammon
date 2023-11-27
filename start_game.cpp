@@ -1,7 +1,11 @@
 #include <iostream>
+
+// All header files
 #include "functions_definitions.h"
 #include "AI.h"
 #include "conio.h"
+#include "interfaces.h"
+#include "board.h"
 
 void start_game(PlayersDatabase* database, Player* player_1, Player* player_2, bool& read_from_file)
 {
@@ -84,6 +88,8 @@ void start_game(PlayersDatabase* database, Player* player_1, Player* player_2, b
 					}
 					if (player_index == 1) { player_index = 2; }
 					else { player_index = 1; }
+					// Print state of the game to the file
+					write_to_file(table->table, player_1, player_2);
 					continue;
 				}
 

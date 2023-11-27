@@ -58,36 +58,9 @@ struct PlayersDatabase
 
 void start_game(PlayersDatabase* database, Player* player_1, Player* player_2, bool& load_from_file);
 
-/*
-    Helper functions to initialize and print the table
-*/
-void initialize_bar(char table[][WIDTH], char bar_table[BAR_SIZE], int x, int y);
-void initialize_1_part_of_columns(int x_coordinate, int y_coordinate, Board* table_s);
-void initialize_pawns(char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN]);
-void print_top_pawns(char table[][WIDTH], char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN],
-    int initial_x_coordinate, int initial_y_coordinate);
-void print_bottom_pawns(char table[HEIGHT][WIDTH], char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN],
-    int initial_x_coordinate, int initial_y_coordinate);
-
-void initialize_table(Board* table_s);
-void print_table(Board* table_s);
-
-// _s -> it means that it is structure
-void initialize_table(Board* table_s);
-
 // Function to play the game
 bool play(Player* player_1, Player* player_2, Board* table_s, int player_index, bool& start_a_new_game);
 
-/*
-    Functions for printing the interfaces
-*/
-// Funtion for displaying player's interface
-void print_top_interface(Player* player_1, Player* player_2, bool playing);
-void print_player_interface(int player_index, Player* player_1, Player* player_2);
-void print_startup_options_interface();
-void print_playing_interface();
-void print_removed_pawns_interface(Player* player_1, Player* player_2);
-void print_database_interface();
 
 // This function will display for us which player starts the game
 void print_which_player_begins(int& player_index);

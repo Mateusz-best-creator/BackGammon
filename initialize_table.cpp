@@ -1,4 +1,5 @@
 #include "functions_definitions.h"
+#include "board.h"
 
 void initialize_table(Board* table_s)
 {

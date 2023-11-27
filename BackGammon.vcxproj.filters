@@ -170,5 +170,11 @@
     <ClInclude Include="AI.h">
       <Filter>Source Files\AI</Filter>
     </ClInclude>
+    <ClInclude Include="interfaces.h">
+      <Filter>Source Files\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="board.h">
+      <Filter>Source Files\board</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

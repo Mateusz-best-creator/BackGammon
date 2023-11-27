@@ -1,6 +1,8 @@
 #include <iostream>
 #include "functions_definitions.h"
 #include "conio.h"
+#include "interfaces.h"
+#include "board.h"
 
 bool play(Player* player_1, Player* player_2, Board* table_s, int player_index, bool& start_a_new_game)
 {

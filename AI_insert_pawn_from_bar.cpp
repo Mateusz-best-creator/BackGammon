@@ -1,5 +1,6 @@
 #include "AI.h"
 #include "conio.h"
+#include "board.h"
 
 void AI_insert_pawn_from_bar(Board* table_s, Player* player_AI, int dice_value, char AI_pawn_char)
 {

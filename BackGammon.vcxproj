@@ -167,8 +167,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AI.h" />
+    <ClInclude Include="board.h" />
     <ClInclude Include="conio.h" />
     <ClInclude Include="functions_definitions.h" />
+    <ClInclude Include="interfaces.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

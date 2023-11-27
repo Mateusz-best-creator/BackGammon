@@ -1,11 +1,8 @@
 #include "functions_definitions.h"
 #include "conio.h"
+#include "board.h"
 
 #include <iostream>
-
-/*
-
-*/
 
 static int how_many_moves_can_make = 2;
 static bool did_not_increment_moves = true;

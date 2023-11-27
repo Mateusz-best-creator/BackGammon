@@ -1,6 +1,7 @@
 #include <iostream>
 #include "functions_definitions.h"
 #include "conio.h"
+#include "interfaces.h"
 
 void print_top_interface(Player* player1, Player* player2, bool playing)
 {

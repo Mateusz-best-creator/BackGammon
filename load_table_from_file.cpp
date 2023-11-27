@@ -1,6 +1,6 @@
 #include "functions_definitions.h"
 #include "conio.h"
-
+#include "board.h"
 #include <stdio.h>
 #include <iostream>
 
