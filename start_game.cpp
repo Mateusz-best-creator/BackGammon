@@ -1,5 +1,6 @@
 #include <iostream>
 #include "functions_definitions.h"
+#include "AI.h"
 #include "conio.h"
 
 void start_game(PlayersDatabase* database, Player* player_1, Player* player_2, bool& read_from_file)

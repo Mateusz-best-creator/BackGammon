@@ -128,12 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="add_player_to_database.cpp" />
+    <ClCompile Include="AI_move_pawn.cpp" />
     <ClCompile Include="AI_insert_pawn_from_bar.cpp" />
     <ClCompile Include="AI_make_move.cpp" />
-    <ClCompile Include="AI_strategy.cpp" />
+    <ClCompile Include="AI_take_pawns_off_the_board.cpp" />
     <ClCompile Include="check_all_pawns_in_home.cpp" />
     <ClCompile Include="check_if_player_won.cpp" />
-    <ClCompile Include="check_insert_conditions.cpp" />
+    <ClCompile Include="AI_check_insert_conditions.cpp" />
     <ClCompile Include="choose_indexes.cpp" />
     <ClCompile Include="conio.cpp" />
     <ClCompile Include="database_functionality.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="write_to_file.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AI.h" />
     <ClInclude Include="conio.h" />
     <ClInclude Include="functions_definitions.h" />
   </ItemGroup>

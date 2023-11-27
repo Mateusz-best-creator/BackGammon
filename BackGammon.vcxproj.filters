@@ -144,16 +144,19 @@
     <ClCompile Include="load_table_from_file.cpp">
       <Filter>Source Files\load_game_from_file</Filter>
     </ClCompile>
-    <ClCompile Include="AI_strategy.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
     <ClCompile Include="AI_make_move.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
-    <ClCompile Include="check_insert_conditions.cpp">
+    <ClCompile Include="AI_check_insert_conditions.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
     <ClCompile Include="AI_insert_pawn_from_bar.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI_take_pawns_off_the_board.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI_move_pawn.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
   </ItemGroup>
@@ -163,6 +166,9 @@
     </ClInclude>
     <ClInclude Include="functions_definitions.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AI.h">
+      <Filter>Source Files\AI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

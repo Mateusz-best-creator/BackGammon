@@ -1,7 +1,7 @@
-#include "functions_definitions.h"
+#include "AI.h"
 
 
-bool check_insert_conditions(Board* table_s, Player* player_AI, int i, int j, const char AI_pawn_char, int dice_value)
+bool AI_check_insert_conditions(Board* table_s, Player* player_AI, int i, int j, const char AI_pawn_char, int dice_value)
 {
 	int player_1_pawns_on_bar = 0;
 	int player_AI_pawns_on_bar = 0;

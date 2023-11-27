@@ -6,7 +6,6 @@
 #include <stdlib.h>
 
 #include "functions_definitions.h"
-#include "AI.h"
 
 
 int main()

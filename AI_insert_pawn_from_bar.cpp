@@ -1,9 +1,9 @@
-#include "functions_definitions.h"
+#include "AI.h"
 #include "conio.h"
 
 void AI_insert_pawn_from_bar(Board* table_s, Player* player_AI, int dice_value, char AI_pawn_char)
 {
-	if (dice_value == 0) { return; }
+	if (player_AI->dice1 == 0 && player_AI->dice2 == 0) { return; }
 	dice_value--; // We subtract 1 beacuse we index column from 0!
 	int player_AI_pawns_on_bar = 0;
 	for (size_t i = 0; i < NUMBER_OF_ROWS_IN_COLUMN; ++i)
