@@ -46,6 +46,9 @@
     <Filter Include="Source Files\AI">
       <UniqueIdentifier>{c62045d5-1808-484a-8cfb-5eaf77ac9b1a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\visualize_game">
+      <UniqueIdentifier>{9776357b-3981-4729-91d7-97c8606e23bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -158,6 +161,15 @@
     </ClCompile>
     <ClCompile Include="AI_move_pawn.cpp">
       <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="visualize_game.cpp">
+      <Filter>Source Files\visualize_game</Filter>
+    </ClCompile>
+    <ClCompile Include="visualization.cpp">
+      <Filter>Source Files\visualize_game</Filter>
+    </ClCompile>
+    <ClCompile Include="visualization_interface.cpp">
+      <Filter>Source Files\visualize_game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

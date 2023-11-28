@@ -121,3 +121,11 @@ void delete_player_from_database(PlayersDatabase* database);
 void choose_indexes(int* player_1_index, int* player_2_index);
 
 Board* load_table_from_file(Player* player_1, Player* player_2);
+
+/*
+    Functions for visualizing the game from the file
+*/
+
+void visualize_game(Player* player_1, Player* player_2);
+void visualization(Board* table_of_boards, Player* table_of_player_1, Player* table_of_player_2, int number_of_states);
+void print_visualization_interface(Board* table_of_boards, Player* table_of_player_1, Player* table_of_player_2, int index);

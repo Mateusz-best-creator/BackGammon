@@ -33,6 +33,8 @@ int main()
 	cputs("[1] -> play with other player");
 	gotoxy(45, 12);
 	cputs("[2] -> load game from file");
+	gotoxy(75, 12);
+	cputs("[3] -> visualize the game from loaded file");
 	int zn;
 	zn = getch();
 	clrscr();
@@ -44,5 +46,9 @@ int main()
 	else if (zn == '2')
 	{
 		start_game(database, &(database->players[0]), &(database->players[1]), load_from_file);
+	}
+	else if (zn == '3')
+	{
+		visualize_game(&(database->players[0]), &(database->players[1]));
 	}
 }

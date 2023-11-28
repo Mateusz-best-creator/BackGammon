@@ -162,6 +162,9 @@
     <ClCompile Include="take_pawn_of_the_board.cpp" />
     <ClCompile Include="top_interface.cpp" />
     <ClCompile Include="update_bar.cpp" />
+    <ClCompile Include="visualization.cpp" />
+    <ClCompile Include="visualization_interface.cpp" />
+    <ClCompile Include="visualize_game.cpp" />
     <ClCompile Include="who_start_interface.cpp" />
     <ClCompile Include="write_to_file.cpp" />
   </ItemGroup>
