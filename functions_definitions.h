@@ -39,7 +39,7 @@ struct Player
 };
 
 #define MAX_NUMBER_OF_PLAYERS 5
-#define MAX_NUMBER_OF_AI_PLAYERS 1
+#define MAX_NUMBER_OF_AI_PLAYERS 2
 
 struct PlayersDatabase
 {

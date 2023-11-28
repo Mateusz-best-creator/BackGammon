@@ -147,19 +147,19 @@
     <ClCompile Include="load_table_from_file.cpp">
       <Filter>Source Files\load_game_from_file</Filter>
     </ClCompile>
-    <ClCompile Include="AI_make_move.cpp">
+    <ClCompile Include="AI2_make_move.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
-    <ClCompile Include="AI_check_insert_conditions.cpp">
+    <ClCompile Include="AI1_check_insert_conditions.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
-    <ClCompile Include="AI_insert_pawn_from_bar.cpp">
+    <ClCompile Include="AI1_insert_pawn_from_bar.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
-    <ClCompile Include="AI_take_pawns_off_the_board.cpp">
+    <ClCompile Include="AI1_take_pawns_off_the_board.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
-    <ClCompile Include="AI_move_pawn.cpp">
+    <ClCompile Include="AI1_move_pawn.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
     <ClCompile Include="visualize_game.cpp">
@@ -173,6 +173,21 @@
     </ClCompile>
     <ClCompile Include="write_to_file.cpp">
       <Filter>Source Files\write_to_file</Filter>
+    </ClCompile>
+    <ClCompile Include="AI1_make_move.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI2_insert_pawn_from_bar.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI2_check_insert_conditions.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI2_take_pawns_off_the_board.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI2_move_pawn.cpp">
+      <Filter>Source Files\AI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

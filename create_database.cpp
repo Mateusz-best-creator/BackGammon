@@ -7,7 +7,8 @@ PlayersDatabase* create_database()
 	Player* player_2 = new Player{ 0, 'R', 2, 0, 0, false, {}, 0, {"Ola"} };
 
 	// Initialize AI player
-	Player* player_AI = new Player{ 0, 'R', 2, 0, 0, false, {}, 0, {"AI"} };
+	Player* player_AI_1 = new Player{ 0, 'B', 2, 0, 0, false, {}, 0, {"AI1"} };
+	Player* player_AI_2 = new Player{ 0, 'R', 2, 0, 0, false, {}, 0, {"AI2"} };
 
 	PlayersDatabase* database = new PlayersDatabase();
 
@@ -17,7 +18,8 @@ PlayersDatabase* create_database()
 	database->number_of_players = 2;
 
 	// AI bot will be treated differently
-	database->players[5] = *player_AI;
+	database->players[5] = *player_AI_1;
+	database->players[6] = *player_AI_2;
 	
 	return database;
 }

@@ -20,7 +20,7 @@ void print_players_database(PlayersDatabase* database)
 	{
 		gotoxy(TOP_LEFT_X_CORNER_COORDINATE, TOP_LEFT_Y_CORNER_COORDINATE + 2);
 		std::cout << "List is empty";
-	}
+	}	
 	// If it's not empty we just print the players data
 	else
 	{
@@ -37,14 +37,17 @@ void print_players_database(PlayersDatabase* database)
 	}
 	gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE);
 	std::cout << "List of AI bots:";
-
-	// For now I created 1 bot so will not create a loop
-	gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE + 2);
-	std::cout << "Bot 1:";
-	gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE + 4);
-	std::cout << "Bot score: " << database->players[5].points;
-	gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE + 5);
-	std::cout << "Bot name: " << database->players[5].name;
-	gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE + 6);
-	std::cout << "Bot id: " << 5;
+	int space = 0;
+	for (size_t i = 1; i < MAX_NUMBER_OF_AI_PLAYERS + 1; i++)
+	{
+		if (i == 2) { space = 6; }
+		gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE + 2 + space);
+		std::cout << "Bot " << i << ": ";
+		gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE + 4 + space);
+		std::cout << "Bot score: " << database->players[4+ i].points;
+		gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE + 5 + space);
+		std::cout << "Bot name: " << database->players[4 + i].name;
+		gotoxy(1, TOP_LEFT_Y_CORNER_COORDINATE + 6 + space);
+		std::cout << "Bot id: " << 4 + i; // Bot ids are 5 and 6
+	}
 }

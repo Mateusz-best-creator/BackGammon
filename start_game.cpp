@@ -77,11 +77,28 @@ void start_game(PlayersDatabase* database, Player* player_1, Player* player_2, b
 					first_time = false;
 					print_which_player_begins(player_index);
 				}
-				gotoxy(1, 1);
-				std::cout << "ID: " << player_index << " Na" << player_2->name;
-				if (player_index == 2 && player_2->name == "AI")
+				
+				// First AI bot makes a move
+				if (player_index == 1 && player_1->name == "AI1")
 				{
-					AI_make_move(table, player_2);
+					AI1_make_move(table, player_1);
+					if (check_if_player_won(player_1))
+					{
+						start_a_new_game = true;
+						break;
+					}
+					if (player_index == 1) { player_index = 2; }
+					else { player_index = 1; }
+					// Print state of the game to the file
+					write_to_file_visually(table->table, player_1, player_2);
+					write_to_file(table, player_1, player_2);
+					continue;
+				}
+
+				// Second IA bot makes a move
+				if (player_index == 2 && player_2->name == "AI2")
+				{
+					AI2_make_move(table, player_2);
 					if (check_if_player_won(player_2))
 					{
 						start_a_new_game = true;
