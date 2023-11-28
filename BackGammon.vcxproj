@@ -167,6 +167,7 @@
     <ClCompile Include="visualize_game.cpp" />
     <ClCompile Include="who_start_interface.cpp" />
     <ClCompile Include="write_to_file.cpp" />
+    <ClCompile Include="write_to_file_visually.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AI.h" />

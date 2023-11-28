@@ -1,54 +1,59 @@
-#include <iostream>
 #include <stdio.h>
-#include <string.h>
 #include "functions_definitions.h"
 
-static int turn_counter = 0;
-
-void write_to_file(const char table[][WIDTH], Player* player_1, Player* player_2)
+void write_to_file(Board* table_s, Player* player_1, Player* player_2)
 {
     FILE* file;
 
     // Open the file using fopen_s
-    if (fopen_s(&file, "state_of_the_game_readable.txt", "a") != 0) {
+    if (fopen_s(&file, "state_of_the_game.txt", "a") != 0) {
         return;
     }
 
-    fprintf(file, "\n============================\nState of the game at turn %d\n============================\n", turn_counter);
-    turn_counter++;
-    fprintf(file, "\n============================\n%s %d points against %s %d points\n============================\n", 
-        player_1->name, player_1->points, 
-        player_2->name, player_2->points);
+    fprintf(file, "N 0 0\n"); // First indicate we start a new state
 
-    for (int i = 0; i < HEIGHT; ++i)
+    // Write players points
+    int p1 = player_1->points, p2 = player_2->points;
+    fprintf(file, "P ");
+    fprintf(file, "%d ", p1);
+    fprintf(file, "%d\n", p2);
+
+    // Write players deleted pawns
+    int r1 = player_1->number_of_removed_pawns, r2 = player_2->number_of_removed_pawns;
+    fprintf(file, "D ");
+    fprintf(file, "%d ", r1);
+    fprintf(file, "%d\n", r2);
+
+    // Print pawns that are on the bar
+    int b1 = 0, b2 = 0;
+    for (size_t i = 0; i < BAR_SIZE; i++)
     {
-        for (int j = 0; j < WIDTH; ++j)
+        if (table_s->player_1_bar[i] == 'B') { b1++; }
+        if (table_s->player_2_bar[i] == 'R') { b2++; }
+    }
+    fprintf(file, "A ");
+    fprintf(file, "%d ", b1);
+    fprintf(file, "%d\n", b2);
+
+    // Write blue and red pawns
+    for (size_t column = 0; column < NUMBER_OF_COLUMNS; column++)
+    {
+        for (size_t row = 0; row < NUMBER_OF_ROWS_IN_COLUMN; row++)
         {
-            fprintf(file, "%c", table[i][j]);
+            if (table_s->pawns[column][row] == 'B')
+            {
+                fprintf(file, "B ");
+                fprintf(file, "%d ", column);
+                fprintf(file, "%d\n", row);
+            }
+            else if (table_s->pawns[column][row] == 'R')
+            {
+                fprintf(file, "R ");
+                fprintf(file, "%d ", column);
+                fprintf(file, "%d\n", row);
+            }
         }
-        fprintf(file, "\n");
     }
 
-    // Close the file
     fclose(file);
-}
-
-static int binary_turn_counter = 0;
-
-void write_to_binary_file(const char table[][WIDTH])
-{
-    FILE* file_binary;
-
-    // Open the file in binary write mode
-    if (fopen_s(&file_binary, "state_of_the_game_binary", "ab") != 0) {
-        return;
-    }
-
-    fprintf(file_binary, "\n============================\nState of the game at turn %d\n============================\n", binary_turn_counter);
-    binary_turn_counter++;
-    // Write the array to the file
-    fwrite(table, sizeof(char), HEIGHT * WIDTH, file_binary);
-
-    // Close the file
-    fclose(file_binary);
 }

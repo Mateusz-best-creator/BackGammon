@@ -105,7 +105,7 @@
     <ClCompile Include="who_start_interface.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
-    <ClCompile Include="write_to_file.cpp">
+    <ClCompile Include="write_to_file_visually.cpp">
       <Filter>Source Files\write_to_file</Filter>
     </ClCompile>
     <ClCompile Include="options_interface.cpp">
@@ -170,6 +170,9 @@
     </ClCompile>
     <ClCompile Include="visualization_interface.cpp">
       <Filter>Source Files\visualize_game</Filter>
+    </ClCompile>
+    <ClCompile Include="write_to_file.cpp">
+      <Filter>Source Files\write_to_file</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

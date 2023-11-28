@@ -20,7 +20,7 @@ int main()
 
 	// Clear and close the file
 	FILE* file;
-	fopen_s(&file, "state_of_the_game_readable.txt", "w");
+	fopen_s(&file, "state_of_the_game_visually.txt", "w");
 	fclose(file);
 
 	// Initialize players database
