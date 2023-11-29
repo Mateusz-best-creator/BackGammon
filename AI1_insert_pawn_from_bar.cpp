@@ -5,7 +5,6 @@
 void AI1_insert_pawn_from_bar(Board* table_s, Player* player_AI, int dice_value, char AI_pawn_char)
 {
 	if (player_AI->dice1 == 0 && player_AI->dice2 == 0) { return; }
-	dice_value--; // We subtract 1 beacuse we index column from 0!
 	int player_AI_pawns_on_bar = 0;
 	for (size_t i = 0; i < NUMBER_OF_ROWS_IN_COLUMN; ++i)
 	{
@@ -26,7 +25,7 @@ void AI1_insert_pawn_from_bar(Board* table_s, Player* player_AI, int dice_value,
 					if (dice_value == player_AI->dice1 + player_AI->dice2) { player_AI->dice1 = 0; player_AI->dice2 = 0; }
 					else if (dice_value == player_AI->dice1) { player_AI->dice1 = 0; }
 					else if (dice_value == player_AI->dice2) { player_AI->dice2 = 0; }
-					table_s->player_2_bar[player_AI_pawns_on_bar - 1] = 'E';
+					table_s->player_1_bar[player_AI_pawns_on_bar - 1] = 'E';
 					player_AI_pawns_on_bar--;
 					break;
 				}

@@ -10,7 +10,7 @@ void AI1_take_pawns_off_the_board(Board* table_s, Player* player_AI, char AI_paw
 			if (table_s->pawns[column_index][row] == AI_pawn_char)
 			{
 				table_s->pawns[column_index][row] = 'E';
-				player_AI->removed_pawns[player_AI->number_of_removed_pawns] = 'B';
+				player_AI->removed_pawns[player_AI->number_of_removed_pawns] = player_AI->pawn_char;
 				player_AI->number_of_removed_pawns++;
 				player_AI->dice1 = 0;
 				// After we removed one pawn we want to break from loop
@@ -26,7 +26,7 @@ void AI1_take_pawns_off_the_board(Board* table_s, Player* player_AI, char AI_paw
 			if (table_s->pawns[column_index][row] == AI_pawn_char)
 			{
 				table_s->pawns[column_index][row] = 'E';
-				player_AI->removed_pawns[player_AI->number_of_removed_pawns] = 'B';
+				player_AI->removed_pawns[player_AI->number_of_removed_pawns] = player_AI->pawn_char;
 				player_AI->number_of_removed_pawns++;
 				player_AI->dice2 = 0;
 				// After we removed one pawn we want to break from loop

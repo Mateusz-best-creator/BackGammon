@@ -1,5 +1,9 @@
 #include <iostream>
 
+// Modules for sleep_for function
+#include <thread>
+#include <chrono>
+
 // All header files
 #include "functions_definitions.h"
 #include "AI.h"
@@ -69,6 +73,13 @@ void start_game(PlayersDatabase* database, Player* player_1, Player* player_2, b
 			// If player typed "P" we will start a game in a loop
 			do
 			{
+				// Show the board for 2 seconds in case AI vs AI
+				if (player_1->name == "AI1" && player_2->name == "AI2")
+				{
+					print_table(table);
+					print_removed_pawns_interface(player_1, player_2);
+					//std::this_thread::sleep_for(std::chrono::seconds(1));
+				}
 				clrscr();
 
 				// Print who start the game

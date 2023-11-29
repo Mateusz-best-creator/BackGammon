@@ -18,11 +18,9 @@ int main()
 	Conio2_Init();
 #endif
 
-	// Clear and close the file
+	// Clear and close the files
 	FILE* file;
-	fopen_s(&file, "state_of_the_game_visually.txt", "w");
-	fclose(file);
-
+	
 	// Initialize players database
 	PlayersDatabase* database = create_database();
 
@@ -41,10 +39,18 @@ int main()
 	bool load_from_file = true;
 	if (zn == '1')
 	{
+		fopen_s(&file, "state_of_the_game_visually.txt", "w");
+		fclose(file);
+		fopen_s(&file, "state_of_the_game.txt", "w");
+		fclose(file);
 		database_functionality(database);
 	}
 	else if (zn == '2')
 	{
+		fopen_s(&file, "state_of_the_game_visually.txt", "w");
+		fclose(file);
+		fopen_s(&file, "state_of_the_game.txt", "w");
+		fclose(file);
 		start_game(database, &(database->players[0]), &(database->players[1]), load_from_file);
 	}
 	else if (zn == '3')

@@ -21,11 +21,11 @@ bool AI1_check_insert_conditions(Board* table_s, Player* player_AI, int i, int j
 		return true;
 	}
 	// Zbicie piona
-	else if (table_s->pawns[i - dice_value][0] == 'B' && table_s->pawns[i - dice_value][1] == 'E')
+	else if (table_s->pawns[i - dice_value][0] == 'R' && table_s->pawns[i - dice_value][1] == 'E')
 	{
 		table_s->pawns[i][j] = 'E';
 		table_s->pawns[i + dice_value][0] = AI_pawn_char;
-		table_s->player_1_bar[player_2_pawns_on_bar] = 'R';
+		table_s->player_2_bar[player_2_pawns_on_bar] = 'R';
 		player_2_pawns_on_bar++;
 		print_table(table_s); // Show new bar immediately
 		return true;

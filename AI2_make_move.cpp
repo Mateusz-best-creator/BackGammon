@@ -18,7 +18,7 @@ void AI2_make_move(Board* table_s, Player* player_AI)
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 	*/
 
-	const char AI_pawn_char = 'R';
+	const char AI_pawn_char = player_AI->pawn_char;
 
 	for (int i = NUMBER_OF_COLUMNS - 1; i >= 0; i--)
 	{
@@ -38,8 +38,13 @@ void AI2_make_move(Board* table_s, Player* player_AI)
 
 			if (check_if_all_pawns_in_home(table_s, 'R'))
 			{
+				player_AI->can_take_pawns_from_the_board = true;
 				AI2_take_pawns_off_the_board(table_s, player_AI, AI_pawn_char);
 				if (player_AI->dice1 == 0 && player_AI->dice2 == 0) { return; }
+			}
+			else
+			{
+				player_AI->can_take_pawns_from_the_board = false;
 			}
 			AI2_move_pawn(table_s, player_AI, i, j, dice_sum, AI_pawn_char);
 		}

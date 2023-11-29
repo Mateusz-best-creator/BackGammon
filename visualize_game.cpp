@@ -1,17 +1,15 @@
 #include "functions_definitions.h"
 #include "board.h"
-#include "conio.h"
 #include <stdio.h>
 
 void visualize_game(Player* player_1, Player* player_2)
 {
-    gotoxy(1, 1);
     Board* table = new Board();
     initialize_table(table);
 
     FILE* file;
 
-    if (fopen_s(&file, "game_to_load.txt", "r") != 0) {
+    if (fopen_s(&file, "state_of_the_game.txt", "r") != 0) {
         printf("Error opening the file.\n");
         return;
     }
@@ -25,12 +23,13 @@ void visualize_game(Player* player_1, Player* player_2)
             number_of_states_of_the_game++;
         }
     }
+
     // Close the file
     fclose(file);
     if (number_of_states_of_the_game == 0) { return; }
 
     // Open file again
-    if (fopen_s(&file, "game_to_load.txt", "r") != 0) {
+    if (fopen_s(&file, "state_of_the_game.txt", "r") != 0) {
         printf("Error opening the file.\n");
         return;
     }
