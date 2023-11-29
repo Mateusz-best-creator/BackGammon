@@ -58,9 +58,9 @@ B 5 0
 B 5 1
 ```
 
-N: Indicates a new state of the game.
-P: Indicates player points.
-D: Indicates removed pawns for each player.
-A: Indicates pawns on the bar for each player.
-B: Indicates the position (column, row) for B pawns.
-R: Indicates the position (column, row) for R pawns.
+**N:** Indicates a new state of the game.
+**P:** Indicates player points.
+**D:** Indicates removed pawns for each player.
+**A:** Indicates pawns on the bar for each player.
+**B:** Indicates the position (column, row) for B pawns.
+**R:** Indicates the position (column, row) for R pawns.
