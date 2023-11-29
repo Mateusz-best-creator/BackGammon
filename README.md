@@ -35,3 +35,6 @@ B 5 1
 **B:** Indicates the position (column, row) for B pawns.
 
 **R:** Indicates the position (column, row) for R pawns.
+
+### AI VS AI Folder
+Within this directory, I store 5 games featuring AI bots playing against each other. You can utilize the contents of these files to visually explore and analyze the progression and outcomes of these games.
