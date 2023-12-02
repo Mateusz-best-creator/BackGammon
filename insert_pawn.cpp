@@ -90,7 +90,7 @@ bool insert_pawn(Board* table_s, int column_index, int row_index, const char pla
 		if (table_s->player_1_bar[i] == 'B') { player_1_pawns_on_bar++; }
 		if (table_s->player_2_bar[i] == 'R') { player_2_pawns_on_bar++; }
 	}
-
+	if (table_s->pawns[column_index][5] != 'E') { return false; }
 	// Case when the entire column is empty
 	if (table_s->pawns[column_index][0] == 'E')
 	{

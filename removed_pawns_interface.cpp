@@ -16,6 +16,7 @@ void print_removed_pawns(char pawn_char, char removed_pawns[], int number_of_rem
 
 void print_removed_pawns_interface(Player* player_1, Player* player_2)
 {
+	textcolor(LIGHTGRAY);
 	int player_1_removed_pawns = player_1->number_of_removed_pawns;
 	int player_2_removed_pawns = player_2->number_of_removed_pawns;
 

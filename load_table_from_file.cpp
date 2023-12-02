@@ -36,6 +36,11 @@ Board* load_table_from_file(Player* player_1, Player* player_2)
         {
             table->pawns[first_value][second_value] = character;
         }
+        else if (character == 'N')
+        {
+            // In this file we store only one state of the game, so we don't need to care about N symbols
+            continue;
+        }
         // Set the points for players
         else if (character == 'P')
         {
@@ -74,7 +79,7 @@ Board* load_table_from_file(Player* player_1, Player* player_2)
         }
         else
         {
-            printf("Unknown operation: %c\n", character);
+            continue;
         }
     }
 
