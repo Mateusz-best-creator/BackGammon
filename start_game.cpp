@@ -95,8 +95,14 @@ void start_game(PlayersDatabase* database, Player* player_1, Player* player_2, b
 					AI1_make_move(table, player_1);
 					if (check_if_player_won(player_1))
 					{
-						start_a_new_game = true;
-						break;
+						// Clear the removed pawns array
+						for (size_t i = 0; i < NUMBER_OF_PAWNS_FOR_ONE_PLAYER; i++)
+						{
+							player_1->removed_pawns[i] = 'E';
+						}
+						player_1->number_of_removed_pawns = 0;
+						database_functionality(database);
+						return;
 					}
 					if (player_index == 1) { player_index = 2; }
 					else { player_index = 1; }
@@ -112,8 +118,14 @@ void start_game(PlayersDatabase* database, Player* player_1, Player* player_2, b
 					AI2_make_move(table, player_2);
 					if (check_if_player_won(player_2))
 					{
-						start_a_new_game = true;
-						break;
+						// Clear the removed pawns array
+						for (size_t i = 0; i < NUMBER_OF_PAWNS_FOR_ONE_PLAYER; i++)
+						{
+							player_2->removed_pawns[i] = 'E';
+						}
+						player_2->number_of_removed_pawns = 0;
+						database_functionality(database);
+						return;
 					}
 					if (player_index == 1) { player_index = 2; }
 					else { player_index = 1; }
