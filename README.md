@@ -36,5 +36,9 @@ B 5 1
 
 **R:** Indicates the position (column, row) for R pawns.
 
+### File Descriptions
+* state_of_the_game.txt: Contains the entire game, with each state of the game separated by the letter 'N'.
+* game_to_load.txt: Stores one specific state of the game that the player can load and play.
+* state_of_the_game_visually.txt: Contains a visually drawn table for each state of the game, displaying players' names and points.
 ### AI VS AI Folder
 Within this directory, I store 5 games featuring AI bots playing against each other. You can utilize the contents of these files to visually explore and analyze the progression and outcomes of these games.
