@@ -4,12 +4,70 @@
 #include <stdio.h>
 #include <iostream>
 
-Board* load_table_from_file(Player* player_1, Player* player_2)
+void br_case(char character, int first_value, int second_value, Board* table)
 {
-    gotoxy(1, 1);
-    Board* table = new Board();
-    initialize_table(table);
+    if (character == 'B' || character == 'R')
+    {
+        table->pawns[first_value][second_value] = character;
+    }
+}
 
+void p_case(char character, int first_value, int second_value, Player* player_1, Player* player_2)
+{
+    // Set the points for players
+    if (character == 'P')
+    {
+        player_1->points = first_value;
+        player_2->points = second_value;
+    }
+}
+
+void d_case(char character, int first_value, int second_value, Player* player_1, Player* player_2)
+{
+    if (character == 'D')
+    {
+        player_1->number_of_removed_pawns = first_value;
+        player_2->number_of_removed_pawns = second_value;
+        // Set removed pawns for first player
+        for (size_t i = 0; i < first_value; ++i)
+        {
+            player_1->removed_pawns[i] = 'B';
+        }
+        // Set removed pawns for second player
+        for (size_t i = 0; i < first_value; ++i)
+        {
+            player_2->removed_pawns[i] = 'R';
+        }
+    }
+}
+
+void a_case(char character, int first_value, int second_value, Board* table)
+{
+    if (character == 'A')
+    {
+        // Set pawns on bar for first player
+        for (size_t i = 0; i < first_value; ++i)
+        {
+            table->player_1_bar[i] = 'B';
+        }
+        // Set pawns on bar for second player
+        for (size_t i = 0; i < second_value; ++i)
+        {
+            table->player_2_bar[i] = 'R';
+        }
+    }
+}
+
+void process(Board* table, char character, int first_value, int second_value, Player* player_1, Player* player_2)
+{
+    br_case(character, first_value, second_value, table);
+    p_case(character, first_value, second_value, player_1, player_2);
+    d_case(character, first_value, second_value, player_1, player_2);
+    a_case(character, first_value, second_value, table);
+}
+
+void clear(Board* table)
+{
     // We need to clear all the pawns that are initialized by default
     for (size_t i = 0; i < NUMBER_OF_COLUMNS; ++i)
     {
@@ -18,6 +76,15 @@ Board* load_table_from_file(Player* player_1, Player* player_2)
             table->pawns[i][j] = 'E'; // E means empty
         }
     }
+}
+
+Board* load_table_from_file(Player* player_1, Player* player_2)
+{
+    gotoxy(1, 1);
+    Board* table = new Board();
+    initialize_table(table);
+
+    clear(table);
 
     FILE* file;
 
@@ -32,55 +99,7 @@ Board* load_table_from_file(Player* player_1, Player* player_2)
     // Read and process the content of the file
     while (fscanf_s(file, " %c %d %d", &character, sizeof(character), &first_value, &second_value) == 3) {
         // Set the pawns on the board
-        if (character == 'B' || character == 'R')
-        {
-            table->pawns[first_value][second_value] = character;
-        }
-        else if (character == 'N')
-        {
-            // In this file we store only one state of the game, so we don't need to care about N symbols
-            continue;
-        }
-        // Set the points for players
-        else if (character == 'P')
-        {
-            player_1->points = first_value;
-            player_2->points = second_value;
-        }
-        // Set the pawns on bar for both players
-        else if (character == 'A')
-        {
-            // Set pawns on bar for first player
-            for (size_t i = 0; i < first_value; ++i)
-            {
-                table->player_1_bar[i] = 'B';
-            }
-            // Set pawns on bar for second player
-            for (size_t i = 0; i < second_value; ++i)
-            {
-                table->player_2_bar[i] = 'R';
-            }
-        }
-        // Set dropped pawns for both players
-        else if (character == 'D')
-        {
-            player_1->number_of_removed_pawns = first_value;
-            player_2->number_of_removed_pawns = second_value;
-            // Set removed pawns for first player
-            for (size_t i = 0; i < first_value; ++i)
-            {
-                player_1->removed_pawns[i] = 'B';
-            }
-            // Set removed pawns for second player
-            for (size_t i = 0; i < first_value; ++i)
-            {
-                player_2->removed_pawns[i] = 'R';
-            }
-        }
-        else
-        {
-            continue;
-        }
+        process(table, character, first_value, second_value, player_1, player_2);
     }
 
     // Close the file
