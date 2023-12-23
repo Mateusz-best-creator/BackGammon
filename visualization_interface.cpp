@@ -3,7 +3,7 @@
 #include "conio.h"
 #include "board.h"
 
-void print_visualization_interface(Board* table_of_boards, Player* table_of_player_1, Player* table_of_player_2, int index)
+void p1(Board* table_of_boards, Player* table_of_player_1, Player* table_of_player_2, int index)
 {
 	clrscr();
 
@@ -24,12 +24,10 @@ void print_visualization_interface(Board* table_of_boards, Player* table_of_play
 
 	gotoxy(20, 5);
 	std::cout << table_of_player_2[index].name << ": " << table_of_player_2[index].points;
+}
 
-	gotoxy(20, 7);
-	print_table(&table_of_boards[index]);
-
-	gotoxy(20, 30);
-	std::cout << "Player 1 removed pawns: ";
+void p2(Board* table_of_boards, Player* table_of_player_1, Player* table_of_player_2, int index)
+{
 	for (size_t i = 0; i < table_of_player_1[index].number_of_removed_pawns; i++)
 	{
 		gotoxy(42 + i + 2, 30);
@@ -45,6 +43,17 @@ void print_visualization_interface(Board* table_of_boards, Player* table_of_play
 		textcolor(LIGHTRED);
 		std::cout << 'R';
 	}
+}
+
+void print_visualization_interface(Board* table_of_boards, Player* table_of_player_1, Player* table_of_player_2, int index)
+{
+	p1(table_of_boards, table_of_player_1, table_of_player_2, index);
+	gotoxy(20, 7);
+	print_table(&table_of_boards[index]);
+
+	gotoxy(20, 30);
+	std::cout << "Player 1 removed pawns: ";
+	p2(table_of_boards, table_of_player_1, table_of_player_2, index);
 	textcolor(LIGHTGRAY);
 }
 
