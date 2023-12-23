@@ -31,6 +31,19 @@ void AI2_insert_pawn_from_bar(Board* table_s, Player* player_AI, int dice_value,
 				}
 			}
 		}
+		else
+		{
+			if (player_AI->dice1 == dice_value)
+				player_AI->dice1 = 0;
+			else if (player_AI->dice2 == dice_value)
+				player_AI->dice2 = 0;
+			else if (player_AI->dice1 + player_AI->dice2 == dice_value)
+			{
+				player_AI->dice1 = 0;
+				player_AI->dice2 = 0;
+			}
+		}
+
 		print_table(table_s);
 	}
 }

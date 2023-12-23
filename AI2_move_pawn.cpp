@@ -23,7 +23,7 @@ void move_2(Player* player_AI, Board* table_s, char AI_pawn_char, bool& inserted
 	}
 }
 
-void AI2_move_pawn(Board* table_s, Player* player_AI, int i, int j, int dice_sum, char AI_pawn_char)
+void AI2_move_pawn(Board* table_s, Player* player_AI, int i, int j, int& dice_sum, char AI_pawn_char)
 {
 	bool inserted = false;
 	/*
