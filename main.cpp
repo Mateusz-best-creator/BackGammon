@@ -7,6 +7,36 @@
 
 #include "functions_definitions.h"
 
+void case2(FILE* file, PlayersDatabase* database, bool& load_from_file)
+{
+	fopen_s(&file, "state_of_the_game_visually.txt", "w");
+	fclose(file);
+	fopen_s(&file, "state_of_the_game.txt", "w");
+	fclose(file);
+	start_game(database, &(database->players[0]), &(database->players[1]), load_from_file);
+}
+
+void case1(FILE* file, PlayersDatabase* database)
+{
+	fopen_s(&file, "state_of_the_game_visually.txt", "w");
+	fclose(file);
+	fopen_s(&file, "state_of_the_game.txt", "w");
+	fclose(file);
+	database_functionality(database);
+}
+
+void info()
+{
+	// Initialize the game
+	gotoxy(10, 10);
+	cputs("Choose type of the game:");
+	gotoxy(10, 12);
+	cputs("[1] -> play with other player");
+	gotoxy(45, 12);
+	cputs("[2] -> load game from file");
+	gotoxy(75, 12);
+	cputs("[3] -> visualize the game from loaded file");
+}
 
 int main()
 {
@@ -19,39 +49,23 @@ int main()
 #endif
 
 	// Clear and close the files
-	FILE* file;
-	
+	FILE* file = nullptr;
+
 	// Initialize players database
 	PlayersDatabase* database = create_database();
 
-	// Initialize the game
-	gotoxy(10, 10);
-	cputs("Choose type of the game:");
-	gotoxy(10, 12);
-	cputs("[1] -> play with other player");
-	gotoxy(45, 12);
-	cputs("[2] -> load game from file");
-	gotoxy(75, 12);
-	cputs("[3] -> visualize the game from loaded file");
+	info();
 	int zn;
 	zn = getch();
 	clrscr();
 	bool load_from_file = true;
 	if (zn == '1')
 	{
-		fopen_s(&file, "state_of_the_game_visually.txt", "w");
-		fclose(file);
-		fopen_s(&file, "state_of_the_game.txt", "w");
-		fclose(file);
-		database_functionality(database);
+		case1(file, database);
 	}
 	else if (zn == '2')
 	{
-		fopen_s(&file, "state_of_the_game_visually.txt", "w");
-		fclose(file);
-		fopen_s(&file, "state_of_the_game.txt", "w");
-		fclose(file);
-		start_game(database, &(database->players[0]), &(database->players[1]), load_from_file);
+		case2(file, database, load_from_file);
 	}
 	else if (zn == '3')
 	{
