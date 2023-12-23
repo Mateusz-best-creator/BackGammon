@@ -114,7 +114,7 @@ void P_case(Player* p1, Player* p2, PlayersDatabase* db, Board* t, int& pi, bool
 	} while (!sp);
 }
 
-bool end(Board* t,bool& sng, PlayersDatabase* dt, Player* p1, Player* p2, bool& rf, bool& gdt)
+bool end(Board* t, bool& sng, PlayersDatabase* dt, Player* p1, Player* p2, bool& rf, bool& gdt)
 {
 	_setcursortype(_NORMALCURSOR);	// show the cursor so it will be visible after the program ends
 
