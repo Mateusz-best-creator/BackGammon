@@ -16,8 +16,8 @@ void write_to_file_visually(const char table[][WIDTH], Player* player_1, Player*
 
     fprintf(file, "\n============================\nState of the game at turn %d\n============================\n", turn_counter);
     turn_counter++;
-    fprintf(file, "\n============================\n%s %d points against %s %d points\n============================\n", 
-        player_1->name, player_1->points, 
+    fprintf(file, "\n============================\n%s %d points against %s %d points\n============================\n",
+        player_1->name, player_1->points,
         player_2->name, player_2->points);
 
     for (int i = 0; i < HEIGHT; ++i)
