@@ -18,7 +18,7 @@ void AI_both(Player* player_1, Player* player_2, Board* table, bool& first_time,
 	{
 		print_table(table);
 		print_removed_pawns_interface(player_1, player_2);
-		std::this_thread::sleep_for(std::chrono::seconds(1));
+		std::this_thread::sleep_for(std::chrono::seconds(0));
 	}
 	clrscr();
 
@@ -96,8 +96,7 @@ void P_case(Player* p1, Player* p2, PlayersDatabase* db, Board* t, int& pi, bool
 		{
 			if (AI2(p1, p2, db, t, pi))
 				return;
-			else
-				continue;
+			continue;
 		}
 
 		sp = play(p1, p2, t, pi, sng);

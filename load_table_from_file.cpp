@@ -69,7 +69,7 @@ void process(Board* table, char character, int first_value, int second_value, Pl
 void clear(Board* table)
 {
     // We need to clear all the pawns that are initialized by default
-    for (size_t i = 0; i < NUMBER_OF_COLUMNS; ++i)
+    for (size_t i = 0; i < N_COLUMNS; ++i)
     {
         for (size_t j = 0; j < NUMBER_OF_ROWS_IN_COLUMN; ++j)
         {

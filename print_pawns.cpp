@@ -2,7 +2,7 @@
 #include "conio.h"
 
 // function for printing pawns that are at the bottom
-void print_bottom_pawns(char table[HEIGHT][WIDTH], char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN], int initial_x_coordinate, int initial_y_coordinate)
+void print_bottom_pawns(char table[HEIGHT][WIDTH], char pawns[N_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN], int initial_x_coordinate, int initial_y_coordinate)
 {
     int counter = 0;
     int extra_middle_space = 0;
@@ -30,11 +30,11 @@ void print_bottom_pawns(char table[HEIGHT][WIDTH], char pawns[NUMBER_OF_COLUMNS]
 }
 
 // function for printing pawns that are at the top
-void print_top_pawns(char table[][WIDTH], char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN], int initial_x_coordinate, int initial_y_coordinate)
+void print_top_pawns(char table[][WIDTH], char pawns[N_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN], int initial_x_coordinate, int initial_y_coordinate)
 {
     int extra_middle_space = 0;
     int counter = 0;
-    for (int i = 12; i < NUMBER_OF_COLUMNS; ++i)
+    for (int i = 12; i < N_COLUMNS; ++i)
     {
         if (i > 17)
         {

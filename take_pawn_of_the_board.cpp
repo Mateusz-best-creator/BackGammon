@@ -44,12 +44,12 @@ void remove_pawn(Player* player, Board* table_s, int column_index)
 	}
 	else // For red player we have to change some indexes
 	{
-		if (NUMBER_OF_COLUMNS - column_index + 1 == player->dice1)
+		if (N_COLUMNS - column_index + 1 == player->dice1)
 		{
 			player->dice1 = 0;
 			update_player_removed_paws(player, table_s, column_index);
 		}
-		if (NUMBER_OF_COLUMNS - column_index + 1 == player->dice2)
+		if (N_COLUMNS - column_index + 1 == player->dice2)
 		{
 			player->dice2 = 0;
 			update_player_removed_paws(player, table_s, column_index);

@@ -8,7 +8,8 @@
 #define HEIGHT 17
 #define WIDTH 70
 
-#define NUMBER_OF_COLUMNS 24
+#define N_COLUMNS 24
+#define N_COLUMNS 24
 #define NUMBER_OF_ROWS_IN_COLUMN 6
 
 #define NUMBER_OF_INDEXES 12
@@ -20,7 +21,7 @@
 struct Board
 {
     char table[HEIGHT][WIDTH];
-    char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN];
+    char pawns[N_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN];
     char player_1_bar[BAR_SIZE];
     char player_2_bar[BAR_SIZE];
     int color;

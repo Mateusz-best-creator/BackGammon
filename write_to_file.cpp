@@ -5,7 +5,7 @@
 void wbr(Board* table_s, FILE* file)
 {
     // Write blue and red pawns
-    for (size_t column = 0; column < NUMBER_OF_COLUMNS; column++)
+    for (size_t column = 0; column < N_COLUMNS; column++)
     {
         for (size_t row = 0; row < NUMBER_OF_ROWS_IN_COLUMN; row++)
         {

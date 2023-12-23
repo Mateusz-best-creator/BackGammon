@@ -47,7 +47,7 @@ void N_case(int& in, Board* tb, Player* tb1, Player* tb2, Player* p1, Player* p2
 
     // Initialize table and remove all pawns
     initialize_table(&tb[in]);
-    for (size_t i = 0; i < NUMBER_OF_COLUMNS; ++i)
+    for (size_t i = 0; i < N_COLUMNS; ++i)
     {
         for (size_t j = 0; j < NUMBER_OF_ROWS_IN_COLUMN; ++j)
         {

@@ -202,7 +202,7 @@ bool insert_pawn(Board* t, int ci, int ri, const char ps,
 	{
 		if (ps == 'B')
 		{
-			dif = NUMBER_OF_COLUMNS - ci;
+			dif = N_COLUMNS - ci;
 			sci = 24;
 		}
 		else

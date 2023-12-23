@@ -2,44 +2,49 @@
 #include "board.h"
 
 
-bool AI2_check_insert_conditions(Board* table_s, Player* player_AI, int i, int j, const char AI_pawn_char, int dice_value)
+void count2(Board* t, int& p1pob, int& pAIpob)
 {
-	int player_1_pawns_on_bar = 0;
-	int player_AI_pawns_on_bar = 0;
-
 	for (int i = 0; i < BAR_SIZE; ++i)
 	{
-		if (table_s->player_1_bar[i] == 'B') { player_1_pawns_on_bar++; }
-		if (table_s->player_2_bar[i] == 'R') { player_AI_pawns_on_bar++; }
+		if (t->player_1_bar[i] == 'B') { p1pob++; }
+		if (t->player_2_bar[i] == 'R') { pAIpob++; }
 	}
+}
+
+bool AI2_check_insert_conditions(Board* t, Player* p, int i, int j, const char c, int dv)
+{
+	int p1pob = 0;
+	int pAIpob = 0;
+
+	count2(t, p1pob, pAIpob);
 
 	// Empty column
-	if (table_s->pawns[i + dice_value][0] == 'E')
+	if (t->pawns[i + dv][0] == 'E')
 	{
-		table_s->pawns[i][j] = 'E';
-		table_s->pawns[i + dice_value][0] = AI_pawn_char;
+		t->pawns[i][j] = 'E';
+		t->pawns[i + dv][0] = c;
 		return true;
 	}
 	// Zbicie piona
-	else if (table_s->pawns[i + dice_value][0] == 'B' && table_s->pawns[i + dice_value][1] == 'E')
+	else if (t->pawns[i + dv][0] == 'B' && t->pawns[i + dv][1] == 'E')
 	{
-		table_s->pawns[i][j] = 'E';
-		table_s->pawns[i + dice_value][0] = AI_pawn_char;
-		table_s->player_1_bar[player_1_pawns_on_bar] = 'B';
-		player_1_pawns_on_bar++;
-		print_table(table_s); // Show new bar immediately
+		t->pawns[i][j] = 'E';
+		t->pawns[i + dv][0] = c;
+		t->player_1_bar[p1pob] = 'B';
+		p1pob++;
+		print_table(t); // Show new bar immediately
 		return true;
 	}
 	// Column is arleady occupied by AI pawns and we are able to insert the pawn
-	else if (table_s->pawns[i + dice_value][0] == AI_pawn_char &&
-		table_s->pawns[i + dice_value][NUMBER_OF_ROWS_IN_COLUMN - 1] != AI_pawn_char) // Case when column is fully occupied
+	else if (t->pawns[i + dv][0] == c &&
+		t->pawns[i + dv][NUMBER_OF_ROWS_IN_COLUMN - 1] != c) // Case when column is fully occupied
 	{
 		for (size_t k = 0; k < NUMBER_OF_ROWS_IN_COLUMN; ++k)
 		{
-			if (table_s->pawns[i + dice_value][k] == 'E')
+			if (t->pawns[i + dv][k] == 'E')
 			{
-				table_s->pawns[i + dice_value][k] = 'R';
-				table_s->pawns[i][j] = 'E';
+				t->pawns[i + dv][k] = 'R';
+				t->pawns[i][j] = 'E';
 				return true;
 			}
 		}

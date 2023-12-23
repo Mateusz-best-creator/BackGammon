@@ -35,7 +35,7 @@ void check_if_pawns_in_home(Board* table_s, Player* player_1, Player* player_2, 
 bool check_if_all_pawns_in_home(Board* table_s, char player_sign)
 {
 	// Check the board itself
-	for (int i = 0; i < NUMBER_OF_COLUMNS; ++i)
+	for (int i = 0; i < N_COLUMNS; ++i)
 	{
 		for (int j = 0; j < NUMBER_OF_ROWS_IN_COLUMN; ++j)
 		{

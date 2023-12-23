@@ -3,50 +3,54 @@
 #include "conio.h"
 #include <thread>
 #include <chrono>
-// This function will make a move as an AI, if we are unable to make any move, than we return false
-void AI2_make_move(Board* table_s, Player* player_AI)
+
+bool ch2(Player* p, Board* t, char& c)
 {
-	int dice1, dice2;
-	get_random_numbers(&dice1, &dice2);
-	int dice_sum = dice1 + dice2;
-	player_AI->dice1 = dice1;
-	player_AI->dice2 = dice2;
+	p->can_take_pawns_from_the_board = true;
+	AI2_take_pawns_off_the_board(t, p, c);
+	if (p->dice1 == 0 && p->dice2 == 0)
+		return true;
+	return false;
+}
 
-	/*
-	gotoxy(1, 4);
-	std::cout << player_AI->dice1 << " " << player_AI->dice2;
-	std::this_thread::sleep_for(std::chrono::seconds(1));
-	*/
+// This function will make a move as an AI, if we are unable to make any move, than we return false
+void AI2_make_move(Board* t, Player* p)
+{
+	int d1, d2;
+	get_random_numbers(&d1, &d2);
+	int ds = d1 + d2;
+	p->dice1 = d1;
+	p->dice2 = d2;
 
-	const char AI_pawn_char = player_AI->pawn_char;
+	char c = p->pawn_char;
 
-	for (int i = NUMBER_OF_COLUMNS - 1; i >= 0; i--)
+	for (int i = N_COLUMNS - 1; i >= 0; i--)
 	{
 		for (int j = NUMBER_OF_ROWS_IN_COLUMN - 1; j >= 0; j--)
 		{
 			/*
 				Checks whether or not we are able to take pawn out of the board
 			*/
-			AI2_insert_pawn_from_bar(table_s, player_AI, player_AI->dice1 + player_AI->dice2, AI_pawn_char);
-			AI2_insert_pawn_from_bar(table_s, player_AI, player_AI->dice1, AI_pawn_char);
-			AI2_insert_pawn_from_bar(table_s, player_AI, player_AI->dice2, AI_pawn_char);
+			AI2_insert_pawn_from_bar(t, p, p->dice1 + p->dice2, c);
+			AI2_insert_pawn_from_bar(t, p, p->dice1, c);
+			AI2_insert_pawn_from_bar(t, p, p->dice2, c);
 
-			if (player_AI->dice1 == 0 && player_AI->dice2 == 0) { return; }
+			if (p->dice1 == 0 && p->dice2 == 0) 
+				return; 
 
 			// Update dice_sum variable
-			dice_sum = player_AI->dice1 + player_AI->dice2;
+			ds = p->dice1 + p->dice2;
 
-			if (check_if_all_pawns_in_home(table_s, 'R'))
+			if (check_if_all_pawns_in_home(t, 'R'))
 			{
-				player_AI->can_take_pawns_from_the_board = true;
-				AI2_take_pawns_off_the_board(table_s, player_AI, AI_pawn_char);
-				if (player_AI->dice1 == 0 && player_AI->dice2 == 0) { return; }
+				if (ch2(p, t, c))
+					return;
 			}
 			else
 			{
-				player_AI->can_take_pawns_from_the_board = false;
+				p->can_take_pawns_from_the_board = false;
 			}
-			AI2_move_pawn(table_s, player_AI, i, j, dice_sum, AI_pawn_char);
+			AI2_move_pawn(t, p, i, j, ds, c);
 		}
 	}
 }

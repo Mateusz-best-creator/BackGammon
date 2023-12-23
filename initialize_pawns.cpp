@@ -1,13 +1,13 @@
 #include "functions_definitions.h"
 
-void initialize_pawns(char pawns[NUMBER_OF_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN])
+void initialize_pawns(char pawns[N_COLUMNS][NUMBER_OF_ROWS_IN_COLUMN])
 {
     /*
         E -> empty place
         R -> this means that given pawn belongs to "Red" player
         B -> this means that given pawn belongs to "Blue" player
     */
-    for (int i = 0; i < NUMBER_OF_COLUMNS; ++i)
+    for (int i = 0; i < N_COLUMNS; ++i)
     {
         for (int j = 0; j < NUMBER_OF_ROWS_IN_COLUMN; ++j)
         {
