@@ -3,7 +3,7 @@
 #include "conio.h"
 #include "interfaces.h"
 
-void print_top_interface(Player* player1, Player* player2, bool playing)
+void set(Player* player1)
 {
 	// settitle sets the window title
 	settitle("Mateusz Wieczorek - Data Engineering group 3, id = 197743");
@@ -26,7 +26,11 @@ void print_top_interface(Player* player1, Player* player2, bool playing)
 	textcolor(LIGHTCYAN);
 	gotoxy(TOP_LEFT_X_CORNER_COORDINATE + 8, 4);
 	std::cout << player1->name << " (B) = " << player1->points;
+}
 
+void print_top_interface(Player* player1, Player* player2, bool playing)
+{
+	set(player1);
 	textcolor(LIGHTRED);
 	gotoxy(TOP_LEFT_X_CORNER_COORDINATE + 8, 5);
 	std::cout << player2->name << " (R) = " << player2->points;
