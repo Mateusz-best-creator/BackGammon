@@ -18,7 +18,7 @@ void AI_both(Player* player_1, Player* player_2, Board* table, bool& first_time,
 	{
 		print_table(table);
 		print_removed_pawns_interface(player_1, player_2);
-		std::this_thread::sleep_for(std::chrono::seconds(0));
+		std::this_thread::sleep_for(std::chrono::seconds(1));
 	}
 	clrscr();
 
