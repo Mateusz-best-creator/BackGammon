@@ -17,7 +17,8 @@ void database_functionality(PlayersDatabase* database)
 			delete_player_from_database(database);
 		}
 	} while (zn != 'S');
-	
+
+
 	int player_1_index, player_2_index;
 	choose_indexes(&player_1_index, &player_2_index);
 	bool read_from_file = false;

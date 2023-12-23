@@ -7,8 +7,7 @@
 #include <thread>
 #include <chrono>
 
-
-void delete_player_from_database(PlayersDatabase* database)
+bool min(PlayersDatabase* database)
 {
 	clrscr();
 	if (database->number_of_players == 0)
@@ -18,15 +17,21 @@ void delete_player_from_database(PlayersDatabase* database)
 		std::cout << "\nCurrently we don't have any players inside our database, going back...";
 		// Sleep for 2 seconds
 		std::this_thread::sleep_for(std::chrono::seconds(2));
-		return;
+		return true;
 	}
+	return false;
+}
 
+void delete_player_from_database(PlayersDatabase* d)
+{
+	if (min(d))
+		return;
 	gotoxy(1, 1);
 	std::cout << "Give index of a player to be removed: ";
 	int index;
 	index = getche();
 	index -= 48;
-	if (index > database->number_of_players || index < 0)
+	if (index > d->number_of_players || index < 0)
 	{
 		std::cout << "\nWrong index value, going back...";
 		// Sleep for 2 seconds
@@ -35,24 +40,18 @@ void delete_player_from_database(PlayersDatabase* database)
 	}
 	std::cout << "\nRemoving player " << index << "...";
 
-	for (int i = 0; i < database->number_of_players; ++i)
+	for (int i = 0; i < d->number_of_players; ++i)
 	{
 		if (i == index)
 		{
-			/*
-				For some reason above line crushes the entire program :(
-			*/
-			// Release the memory for removed player
-			//delete[] database->players[i].name;
-
 			// Found the player, remove and shift others
-			for (int j = i; j < database->number_of_players - 1; ++j)
+			for (int j = i; j < d->number_of_players - 1; ++j)
 			{
-				database->players[j] = database->players[j + 1];
+				d->players[j] = d->players[j + 1];
 			}
 
 			// Decrement number of players
-			database->number_of_players--;
+			d->number_of_players--;
 		}
 	}
 }

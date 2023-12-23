@@ -7,10 +7,8 @@
 #include <thread>
 #include <chrono>
 
-void add_player_to_database(PlayersDatabase* database)
+bool max(PlayersDatabase* database)
 {
-	clrscr();
-	// Check if we are able to add the player
 	if (database->number_of_players == MAX_NUMBER_OF_PLAYERS)
 	{
 		gotoxy(1, 1);
@@ -18,15 +16,24 @@ void add_player_to_database(PlayersDatabase* database)
 		std::cout << "\nMaximum number of players = " << MAX_NUMBER_OF_PLAYERS << " going back...";
 		// Sleep for 2 seconds
 		std::this_thread::sleep_for(std::chrono::seconds(2));
-		return;
+		return true;
 	}
+	return false;
+}
+
+void add_player_to_database(PlayersDatabase* d)
+{
+	clrscr();
+	// Check if we are able to add the player
+	if (max(d))
+		return;
 
 	gotoxy(1, 1);
 	std::cout << "Give the length of the name: ";
 	int length;
 	length = getche();
 	length -= 48;
-	
+
 	gotoxy(1, 2);
 	std::cout << "Give the name for a player ";
 
@@ -44,6 +51,6 @@ void add_player_to_database(PlayersDatabase* database)
 	Player* new_player = new Player{ 0, 'R', 2, 0, 0, false, {}, 0, name };
 
 	// Add player to a database
-	database->players[database->number_of_players] = *new_player;
-	database->number_of_players++;
+	d->players[d->number_of_players] = *new_player;
+	d->number_of_players++;
 }

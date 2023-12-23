@@ -20,6 +20,6 @@ PlayersDatabase* create_database()
 	// AI bot will be treated differently
 	database->players[5] = *player_AI_1;
 	database->players[6] = *player_AI_2;
-	
+
 	return database;
 }
